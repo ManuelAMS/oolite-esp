@@ -1,0 +1,1427 @@
+{
+	// Plural-form handling.
+	// * The format is an array of rules, each one a string, as set out below.
+	// * |index| is, by default, 0 for the first rule.
+	//   It is incremented by 1 for each following rule.
+	// * |index| is returned if a rule is matched.
+	// * |index|+1 (wrt the last rule) is returned if none are matched.
+	// * The input is always an integer, and should be -1 if a plural should
+	//   be used but the quantity is indeterminate.
+	// * Each rule is a string containing a list of commands and/or
+	//   conditions, whitespace-separated:
+	//		#n		command		index = n
+	//							affects following rules, is still incremented
+	//		~		command		remaining conditions' results are inverted
+	//							rest of this rule only; second time cancels
+	//		%n		command		input %= n
+	//							rest of this rule only; n >= 2
+	//		=n		condition	input == n
+	//		!n		condition	input != n
+	//		<n		condition	input < n
+	//		>n		condition	input > n
+	// * Parsing of the rule stops at the first false condition.
+	//   #n is therefore normally only useful in one of two places in any rule:
+	//   - the start, so that it always affects following rules;
+	//   - the end, so that it affects only this rule.
+	// * All conditions must be true for the rule to be true.
+	// * If you require either of two conditions, you need two rules.
+	//   The second rule will require use of #n.
+	// * Suffix your tokens with "%n", e.g. "item%0"="item", "item%1"="items".
+	// * If the plural rule list is undefined, you will get English rules.
+	// * If the plural rule list is empty, you will get index 0.
+	"plural-rules" =
+	(
+		"=1"	// index 0: singular
+	//	"!1"	// index 1: plural
+	);
+	
+	"number-group-size" = 3;
+	"number-group-threshold" = 5;
+	"number-decimal-separator" = ",";
+	"number-group-separator" = " ";		// Non-breaking space.
+	
+	/*	%H - homeworld
+		%I - homeworld+ian
+		%R - random digrams
+		%N - better random digrams
+		%@ - text to be inserted at this point
+		%d, %.1f etc. - printf type variables to be inserted
+		[$text] = $text is an entry here that will be expanded
+		[$number] = a random line from item $number of system_description is is used.
+	*/
+	
+	// *** Basic lists ***
+	condition =
+	(
+		"Apponté",
+		"Vert",
+		"Jaune",
+		"Rouge"
+	);
+	economy =
+	(
+		"Industrielle riche",
+		"Industrielle aisée",
+		"Industrielle pauvre",
+		"Principalement Industrielle",
+		"Principalement Agricole",
+		"Agricole riche",
+		"Agricole aisée",
+		"Agricole pauvre"
+	);
+	government =
+	(
+		"Anarchie",
+		"Féodalité",
+		"Multi-Gouvernement",
+		"Dictature",
+		"Communisme",
+		"Confédération",
+		"Démocratie",
+		"Corporatisme"
+	);
+	legal_status =
+	(
+		"Pas de casier judiciaire",
+		"Délinquant",
+		"Fugitif"
+	);
+	rating =
+	(
+		"Pas dangereux",
+		"Pas vraiment dangereux",
+		"Minable",
+		"Moyen",
+		"Au-dessus de la moyenne",
+		"Compétent",
+		"Dangereux",
+		"☆ Mortel ☆",
+		"★★★ E L I T E ★★★"
+	);
+	
+	// Not used - the weapon name is read from equipment.plist
+	weapon_name =
+	(
+		"Aucun",
+		"Double canon à plasma",
+		"Laser à impulsion",
+		"Laser à rayonnement",
+		"Laser de minage",
+		"Laser militaire"
+	);
+	
+	// *** Inhabitant description generator ***
+	inhabitants =
+	(
+		(
+			"Grand",
+			"Féroce",
+			"Petit"
+		),
+		(
+			"Vert",
+			"Rouge",
+			"Jaune",
+			"Bleu",
+			"Noir",
+			"Pas dangereux"
+		),
+		(
+			"Mince",
+			"aux yeux à facettes",
+			"Cornu",
+			"Ossu",
+			"Gras",
+			"Pelucheux"
+		),
+		(
+			"Rongeur",
+			"Crapaud",
+			"Lézard",
+			"Homard",
+			"Oiseau",
+			"Humanoïde",
+			"Félin",
+			"Insecte"
+		),
+		(
+			"Rongeur",
+			"Crapaud",
+			"Lézard",
+			"Homard",
+			"Oiseau",
+			"Humanoïde",
+			"Félin",
+			"Insecte"
+		)
+	);
+	
+	// *** Planet description generator ***
+	system_description =
+	(
+		( // [0]
+			"légendaire",
+			"remarquable",
+			"connu",
+			"célèbre",		
+			"notable"
+		),
+		( // [1]
+			"très",
+			"assez",
+			"bien",
+			"raisonnablement",
+			"\177"	// Special: deletes following character in the string it's expanded into.
+		),
+		( // [2]
+			"ancien",
+			"[20]",
+			"grand",
+			"vaste",
+			"rose"
+		),
+		( // [3]
+			"parc de [28] [29]",
+			"mont",
+			"[27]",
+			"bois [19]",
+			"océan"
+		),
+		( // [4]
+			"complexe de [31]",
+			"manque d'intelligence",
+			"rite matrimonial",
+			"dégoût du [5]",
+			"amour du [5]"
+		),
+		( // [5]
+			"mélange alimentaire",
+			"tourisme",
+			"slam poétique",
+			"disco",
+			"[13]"
+		),
+	( // [6]
+			"arbre parlant",
+			"crabe",
+			"chiroptère",
+			"homard",
+			"%R"
+		),
+	( // [7]
+			"endommagé",
+			"atteint",
+			"dévasté",
+			"menacé",
+			"attaqué"
+		),
+		( // [8]
+			"un [21] conflit héréditaire",
+			"un [24] [26] et [23]",
+			"un [26] trouble de santé",
+			"un [21] tremblement de terre",
+			"un [21] rayonnement solaire"
+		),
+		( // [9]
+			"[2] [3]",
+			"[24] [23] %I  ",
+			"peuple [25] et son [4]",
+			"[32]",
+			"[12] [13]"
+		),
+	( // [10]
+			"jus",
+			"spiritueux",
+			"liquide aqueux",
+			"cidre",
+			"gargouilleur"
+		),
+		( // [11]
+			"%R",
+			"%I [24]",
+			"%I %R",
+			"%I [26]",
+			"[26] %R"
+		),
+		( // [12]
+			"fabuleux",
+			"exotique",
+			"fier",
+			"inhabituel",
+			"passionnant"
+		),
+		( // [13]
+			"repas gastronomique",
+			"plaisir nocturne",
+			"casino",
+			"feuilleton télévisé",
+			"[32]"
+		),
+		( // [14]
+			"%H",
+			"L'astre %H",
+			"Le monde de %H",
+			"Ce monde",
+			"Cet astre"
+		),
+		( // [15]
+			" non remarquable",
+			" ennuyeux",
+			" rasoir",
+			" barbant",
+			" révoltant"
+		),
+		( // [16]
+			"monde",
+			"lieu",
+			"endroit",
+			"petit monde",
+			"dépotoir"
+		),
+		( // [17]
+			"frelon",
+			"papillon de nuit",
+			"asticot",
+			"scarabée",
+			"%R"
+		),
+		( // [18]
+			"poète",
+			"diplômé des Beaux-Arts",
+			"yak",
+			"escargot",
+			"mollusque"
+		),
+		( // [19]
+			"tropical",
+			"dense",
+			"primaire",
+			"impénétrable",
+			"exubérant"
+		),
+		( // [20]
+			"amusant",
+			"étrange",
+			"inhabituel",
+			"bizarre",
+			"particulier"
+		),
+		( // [21]
+			"fréquent",
+			"occasionnel",
+			"imprévisible",
+			"terrifiant",
+			"mortel"
+		),
+		( // [22]
+			"[1] [0] pour son [9]",
+			"[1] [0] pour son [9] et son [9]",
+			"[7] par [8]",
+			"[1] [0] pour son [9] mais [7] par [8]",
+			"[16][15]"
+		),
+		( // [23]
+			"[26]",
+			"montagneux",
+			"comestible",
+			"arboricole",
+			"tacheté"
+		),
+		( // [24]
+			"[30]",
+			"[31]",
+			"[6]oïde",
+			"[18]",
+			"[17]"
+		),
+		( // [25]
+			"ancien",
+			"exceptionnel",
+			"excentrique",
+			"tenace",
+			"[20]"
+		),
+		( // [26]
+			"assassin",
+			"mortel",
+			"mauvais",
+			"fatal",
+			"vicieux"
+		),
+		( // [27]
+			"horodateur",
+			"nuage de poussière",
+			"iceberg",
+			"sol rocheux",
+			"volcan"
+		),
+		( // [28]
+			"végétal",
+			"lilas",
+			"pruneau",
+			"maïs",
+			"grain de %R"
+		),
+		( // [29]
+			"%R",
+			"%I %R",
+			"%I [26]",
+			"habitant",
+			"%I %R"
+		),
+		( // [30]
+			"souriceau",
+			"monstre",
+			"bison",
+			"serpent",
+			"loup"
+		),
+		( // [31]
+			"léopard",
+			"chat",
+			"singe",
+			"bouquetin",
+			"poisson"
+		),
+		( // [32]
+			"[10] [11]",
+			"%I [33] de [30]",
+			"[12] [33] de [31]",
+			"[35] [34]",
+			"[11] [10]"
+		),
+		( // [33]
+			"gigot",
+			"rôti",
+			"steak",
+			"burger",
+			"potage"
+		),		
+		( // [34]
+			"sur glace",
+			"dans la boue",
+			"sans gravité",
+			"dans le vide",
+			"%I ultra"
+		),
+		( // [35]
+			"hockey",
+			"cricket",
+			"karaté",
+			"polo",
+			"tennis"
+		)
+	);
+	
+// *** Planet names and other random names ***
+	// this string must always be the same length (98 characters). Digrams (pairs of letters) are selected from it to build names.
+	digrams = "ABOUSEITILETSTONLONUTHNOALLEXEGEZACEBISOUSESARMAINDIREA’ERATENBERALAVETIEDORQUANTEISRION";
+// If the second character of a digram is equal to this single-character string, it is dropped when generating planet names (but kept for other random names).
+	digrams-apostrophe = "’";
+// this string represents the 4 character phonemes associated with each digram.
+	phonograms = "AEb=UW==sEH=IHt=IHl=EHt=st==AAn=lOW=nUW=T===nOW=AEl=lEY=hEY=JEH=zEY=sEH=bIY=sOW=UHs=EHz=AEr=mAE=IHn=dIY=rEY=EH==UXr=AEt=EHn=bEH=rAX=lAX=vEH=tIY=EHd=AAr=kw==AXn=tEY=IHz=rIY=AAn=";
+// this string similarly, but for espeak. (Note also Apple 'AA' is changed, else 'or' would sound like 'ar'.)
+	espkphonos = "ab=='u:=sE==It==Il==Et==st==0n==l'oUn'u:T===n'oUal==l'eIh'eIdZ'Ez'eIs'E=b'i:s'oU'Us='Ez='ar=m'a='In=d'i:r'eI'E=='Vr='at='En=b'E=ra2=la2=v'E=t'i:'Ed=0r==kw==a2n=t'eI'Iz=r'i:0n==";
+	"interstellar-space"			= "Espace interstellaire";
+	"not-applicable"				= "N/A";
+	
+	// Currency format
+	"@-credits"						= "%@ ₢";
+
+// Fancy-schmancy symbols
+	"multiplication-sign"			= "×";
+	"division-sign"					= "÷";
+	
+	// *** Misc. messages ***
+
+// OXP containing messages that are echoed to Latest.log
+	"oxp-containing-messages-found"		= "OXP message(s) written to the log";
+	"oxp-containing-messages-list-@"	= " de : %@";
+	
+// Messages used when awarding bounties
+	"bounty-@-total-@"				= "Prime : %@\nTotal : %@";
+	"right-on-commander"			= "Bien joué, Commandant !";
+	
+	// Assorted messages used by the onboard computer
+	"autopilot-on"					= "Pilote automatique activé.";
+	"autopilot-off"					= "Pilote automatique désactivé.";
+	"autopilot-out-of-range"		= "Impossible de contacter la station pour les instructions d'appontage.";
+	"autopilot-station-@-does-not-allow-autodocking" = "Impossible d'établir le lien de protocole SinCorn RemLock avec %@.";	
+	"autopilot-cannot-dock-with-target" = "Impossible d'apponter automatiquement pour cette cible.";	// string not used at the moment. Remove? kaks 20101031
+	"autopilot-target-docking-instructions-denied" = "La station a refusé d'envoyer les instructions d'appontage.";
+	"autopilot-denied"				= "La station refuse d'envoyer les instructions d'appontage.";
+	"autopilot-multiple-targets"	= "Trop de vaisseau en appontage actuellement.";
+	"autopilot-red-alert"			= "Alerte rouge ! Impossible de connecter le pilote automatique.";
+	"witch-to-@-in-f-seconds"		= "Bond supraluminique vers %@ dans %.0f s.";
+	"witch-blocked-by-@"			= "Bond supraluminique annulé (trop près de %@.)";
+	"witch-user-abort"				= "Bond supraluminique annulé.";
+	"witch-no-motor"				= "Vaisseau incapable de bond supraluminique.";
+	"witch-no-target"				= "Pas de système de destination sélectionné.";
+	"witch-no-fuel"					= "Pas assez de carburant pour le bond supraluminique.";
+	"witch-too-far"					= "Les moteurs ne peuvent effectuer un bond supraluminique jusqu'à la destination sélectionnée.";
+	"witch-engine-malfunction"		= "Dysfonctionnement des moteurs supraluminiques !";
+	"witch-galactic-in-f-seconds"	= "Bond intergalactique dans %.0f s.";
+	"witch-user-galactic-abort"		= "Bond intergalactique annulé.";
+	"game-paused"					= "Jeu en pause.\nAppuyer F2 pour les options, P pour reprendre.";
+	"game-paused-docked"			= "Jeu en Pause. Appuyer P pour reprendre.";
+	"game-saved"					= "Jeu sauvegardé.";
+	"mouse-on"						= "Contrôle par la souris activé.";
+	"mouse-off"						= "Contrôle par la souris désactivé.";
+	"target-lost"					= "Cible perdue.";
+	"unknown-target"				= "Cible inconnue.";
+	"ecm-on"						= "Système ECM activé.";
+	"ecm-out-of-juice"				= "Système ECM désactivé (Pas d'énergie disponible).";
+	"jump-mass-locked"				= "Hypervitesse empêchée par la masse environnante.";
+	"fuel-inject-on"				= "Injecteurs de carburant activés.";
+	"fuel-out"						= "Carburant supraluminique épuisé.";
+	"ident-on"						= "Système d'identification activé.";
+	"ident-off"						= "Système d'identification désactivé.";
+	"missile-locked-onto-@"			= "Missile verrouillé sur %@.";
+	"ident-locked-onto-@"			= "Système d'identification verrouillé sur %@.";
+	"@-armed"						= "%@ armé.";
+	"missile-safe"					= "Missile ou mine désarmé.";
+	"incoming-missile"				= "Missile en approche.";
+	"energy-low"					= "Énergie faible.";
+	"energy-bomb-activated"			= "Bombe à énergie activée.";
+	"weapon-overheat"				= "Surchauffe de l'armement.";
+	"weapon-out-of-juice"			= "Système d'armement inactif (plus d'énergie disponible).";
+"weapons-systems-online"			= "Système d'armement actif.";
+	"weapons-systems-offline"		= "Système d'armement inactif.";
+	"escape-sequence"				= "Séquence de sauvetage activée.";
+	"@-ejected"						= "%@ éjecté.";
+	"@-ready-to-eject"				= "Paré à éjecter %@.";
+	"ready-to-eject-@"				= "Paré à éjecter %@.";
+	"@-scooped"						= "%@ grapillé.";
+	"scoop-captured-@"				= "Vous avez capturé %@.";
+	"scoop-rescued-@"				= "Vous avez secouru %@.";
+	"scoop-got-slave"				= "Vous avez capturé un esclave.";
+	"fuel-scoop-active"				= "Grapilleur actif.";
+	"hold-locked"					= "Système d'éjection désactivé (vitesse trop élevée).";
+	"hold-full"						= "Soute à cargaison pleine.";
+	// cloaking device ..
+	"cloak-on"						= "Dispositif de furtivité activé.";
+	"cloak-off"						= "Dispositif de furtivité désactivé.";
+	"cloak-low-juice"				= "Pas assez d'énergie pour activer le dispositif de furtivité.";
+	// equipment usage
+	"equipment-primed-@"			= "Équipement initialisé : %@.";
+	"equipment-primed-none"			= "Équipement initialisé : aucun.";
+	"equipment-primed-none-available"	= "Aucun équipement ne peut être initialisé.";
+
+	// Assorted messages sent out by ships etc..
+	"beg-for-mercy" =
+	(
+		"Non !",
+		"À l'aide ! Y'a quelqu'un ? Maman !",
+		"Nos systèmes se désactivent, laissez-nous filer !",
+		"Foutez-nous la paix !",
+		"S'il vous plaît, ne tirez pas !",
+		"Arrêtez ! Ayez pitié !",
+		"S'il vous plaît, ne nous tuez pas. Je vous en prie !",
+		"S.O.S. … S.O.S. … S.O.S. …"
+	);
+	"describe-pirate" =
+	(
+		"brigand",
+		"pirate",
+		"malfaisant",
+		"maraudeur",
+		"criminel"
+	);
+	"describe-Pirate" =	// Capitalized version of describe-pirate
+	(
+		"Brigand",
+		"Pirate",
+		"Malfaisant",
+		"Maraudeur",
+		"Criminel"
+	);
+	"distress-call" =
+	(
+		"Je suis [7] par des [describe-pirate]s ! Aidez-nous !",
+		"Mon vaisseau subit une attaque, veuillez me prêter assistance.",
+		"[describe-Pirate]s m'attaquent. Intervenez, par pitié !",
+		"Au secours ! Quelqu'un ! Maman ?",
+		"Appel de détresse ! Appel de détresse ! Je suis sous un feu nourri.",
+		"Au secours ! Ils me tirent dessus !",
+		"Appel de détresse ! Aidez-moi. Appel de détresse ! Aidez-moi.",
+		"S.O.S. … S.O.S. … S.O.S. …"
+	);
+	"buoy-distress-call" =
+	(
+		"Vous avez attaqué une balise de navigation. Ceci est une infraction de classe 4.",
+		"La balise de navigation de %H signale un acte de vandalisme.",
+		"Balise de navigation de %H au vaisseau attaquant. Veuillez dégager.",
+		"Attaquer une balise de navigation est criminel. La police est en route."
+	);
+	"thanks-for-assist" =
+	(
+		"Merci de votre assistance.",
+		"Merci.",
+		"Que %R vous bénisse dans toutes vos entreprises !",
+		"Oh merci ! De l'aide, enfin..."
+	);
+	"police-thanks-for-assist" =
+	(
+		"Merci pour votre aide, citoyen.",
+		"La police de %H vous remercie de votre assistance."
+	);
+	"thargoid_curses" =
+	(
+		"Prends garde à tes [4]s, humain [18]-[31]!",
+		"Mange tes [24]s, [5]!",
+		"Nous utiliserons tes [20]s [27]s pour nos [33]s !",
+		"%R ! %R ! %R !"
+	);
+	"police-warning" =
+	(
+		"Vaisseau délinquant, ici la police de %H. Vous avez été scanné et devrez vous acquitter d'amendes si vous appontez ici.",
+		"[describe-Pirate], ici la police de %H. Des amendes vous seront imposées si vous appontez.",
+		"Ici la police. Apponter à %H vous expose à des compensations légales pour vos délits.",
+		"Ici la police. La station de %H vous vous imposera des amendes pour vos infractions dès votre appontage."
+	);
+	"police-attack-warning" =
+	(
+		"Délinquant, votre vaisseau va être détruit selon le code de procédure des Galac-flics.",
+		"Veuillez stopper vos moteurs et n'essayez pas d'esquiver nos lasers, [describe-pirate] !",
+		"%R ! Dégagez immédiatement ou recevez le châtiment de la police.",
+		"[describe-Pirate], vous n'êtes pas le bienvenu dans ce système.",
+		"Vaisseau délinquant, ici la police de %H. Dégagez maintenant ou recevez nos tirs.",
+		"[describe-Pirate], votre destruction a été planifiée.",
+		"circulez hors de %H dès maintenant ou soyez détruit.",
+		"Ici police de %H. Vaisseau délinquant verrouillé. En mouvement pour interception."
+	);
+	// /general docking
+	"docking-welcome" =
+	(
+		"Système d'appontage activé.",
+		"Permission d'appontage accordée. Nous envoyons les instructions d'appontage à votre console."
+	);
+	"docking-begin-final-aproach" =
+	(
+		"Vous êtes en approche finale.",
+		"Début de la séquence d'approche finale."
+	);
+	// /general docking
+	// station
+	"station-welcome" =
+	(
+		"Bienvenue à l'astroport de %H.",
+		"Systèmes d'appontage activés. Bienvenue à %H.",
+		"Bienvenue à %H. Veuillez tenir votre manifeste de cargaison prêt pour inspection dès l'appontage.",
+		"Ici la station de %H. Nous avons envoyé les instructions d'appontage à votre console de navigation.",
+		"Bonjour bâtelier de l'espace ! Bienvenue à %H.",
+		"La station de %H vous souhaite la bienvenue. Les procédures d'appontage ne devraient pas prendre plus de quelques minutes. Veuillez rester en position.",
+		"Bienvenue à %H. Merci de patienter pendant que nous guidons votre vaisseau jusqu'à l'appontage.",
+		"Salutations ! Le contrôle aérien de la station de %H vous souhaite la bienvenue."
+	);
+	"station-begin-final-aproach" =
+	(
+		"Vous êtes en approche finale de la station de %H.",
+		"Vous entrez dans l'astroport de %H.",
+		"Initialisation de la séquence d'approche finale.",
+		"Début de l'approche finale de la station de %H."
+	);
+	"station-hold-position" =
+	(
+		"Merci de votre patience - Vous êtes retenu dans la file d'attente.",
+		"La séquence d'appontage recommencera bientôt. Merci de votre patience.",
+		"Embouteillage ! Veuillez, s'il vous plaît, garder votre position tandis que nous dégageons un couloir d'approche pour vous.",
+		"Vous êtes retenu dans la file d'appontage. Merci de patienter."
+	);
+	"station-acknowledges-hold-position" =
+	(
+		"Patience, s'il vous plaît - Nous préparons l'accueil de votre vaisseau.",
+		"La séquence d'appontage va bientôt reprendre. Veuillez patienter. Merci.",
+		"Nous dégageons votre couloir d'approche. Merci d'attendre.",
+		"Votre approche est en préparation. Merci de patienter.",
+		"Votre demande d'appontage a été reçue. Merci de rester en position en attendant l'autorisation.",
+		"Nous manoeuvrons en préparation de votre approche. Veuillez rester en position."
+	);
+	"station-docking-refused-to-fugitive" =
+	(
+		"La station de %H REFUSE d'accepter les fugitifs !"
+	);
+	// /station
+	"fined-@-credits" =
+	(
+		"Le montant de vos amendes se monte à %@ crédits.",
+		"Vous avez été  condamné à une amende de %@ crédits et au ramassage des ordures dans le hangar du pont principal.",
+		"Vous avez été  condamné à une amende de %@ crédits et au nettoyage après le passage des [6]oïdes.",
+		"Vous avez été condamné à une amende de %@ crédits et inscrit à un séminaire de gestion de l'agressivité.”."
+	);
+// Space station docking clearance
+	"station-docking-clearance-acknowledged-d-ships-approaching" =
+	(
+		"Votre demande d'appontage a été reçue. Merci de rester en position pour attendre l'autorisation.",
+		"Veuillez attendre que tous les vaisseaux aient terminé leur approche. Votre position dans la file d'attenteest %d.",
+		"Nous avons du trafic en approche, commandant. Merci de rester en position. Vous êtes le numéro %d dans la queue.",
+		"Nous ne pouvons pas vous autoriser à apponter à cause d'un trafic prioritaire en approche. Votre position dans la file d'attente est %d.",
+		"Nous avons des vaisseaux en approche de la station. Merci d'attendre l'autorisation."
+	);
+	"station-docking-clearance-holding-d-ships-approaching" =
+	(
+		"Merci de votre patience - Vous êtes retenu dans la file d'attente.",
+		"Beaucoup de trafic. Merci de rester en position pendant que nous dégageons un couloir d'approche pour vous.",
+		"Vous êtes dans la file d'attente. merci de votre patience.",
+		"Merci d'attendre que tous les vaisseaux aient terminé leur appontage. Votre position dans la file d'attente est %d.",
+	"Nous avons du trafic en approche, commandant. Merci de patienter. Vous êtes le numéro %d dans la queue.",
+		"Nous ne pouvons pas autoriser votre appontage à cause d'un vaisseau prioritaire en approche. Votre position dans la file d'attente est %d.",
+		"Nous avons des vaisseaux en approche de la station. Merci de reter en position en attendant l'autorisation."
+	);
+						
+	"station-docking-clearance-acknowledged-d-ships-departing" =
+	(
+		"Merci d'attendre que les vaisseaux en partance aient dégagé le tunnel d'appontage. Votre position dans la file d'attente est %d.",
+		"Nous avons du trafic en partance, Commandant. Merci de patienter.",
+		"L'autorisation ne peut être donnée actuellement à cause de trafic prioritaire en partance. Merci de rester en position.",
+		"Il y a des vaisseaux en attente de lancement. Votre position est %d - Merci de rester en position."
+	);
+	"station-docking-clearance-holding-d-ships-departing" =
+	(
+		"Merci d'être patient – vous êtes retenu dans la file d'attente. ",
+		"Le trafic est encombré, merci de rester en position jusqu'au dégagement d'un couloir d'approche.",
+		"Vous êtes dans la file d'attente. Merci de votre patience.",
+		"Veuillez attendre que les vaisseaux en attente soient lancés. Votre position est %d.",
+		"Nous avons du trafic en lancement, commandant. Merci de rester en position. Vous êtes le numéro %d dans la queue.",
+		"Nous ne pouvons pas vous autoriser à apponter à cause de trafic prioritaire en lancement. Votre position est %d.",
+		"Nous avons des vaisseaux en attente de lancement. Veuillez attendre l'autorisation."
+	);
+	"station-docking-clearance-not-required" =
+	(
+		"Nous n'exigeons pas de demande d'appontage, commandant. Appontez à votre convénience.",
+		"Demande d'appontage non nécessaire.",
+		"Appontez, commandant !"
+	);
+	"station-docking-clearance-H-clearance-refused" =
+	(
+		"La station de %H refuse la permission d'appontage aux vaisseaux fugitifs.",
+		"Vaisseau fugitif, nous ne pouvons pas vous permettre d'apponter. Vous n'êtes pas le bienvenu à %H.",
+		"Négatif. Les scanners de sécurité de %H indiquent que vous avez un casier judiciaire.",
+		"Votre autorisation d'appontage est refusée selon l'article 135 du code de sécurité des stations GalCop."
+	);
+	"station-docking-clearance-denied" =
+	(
+		"Les autorisations d'appontage sont refusées à tous les vaisseaux ennemis.",
+		"Appontage non autorisé. Vous n'êtes pas le bienvenu.",
+		"Négatif. Votre vaisseau ne peut apponter ici."
+	);
+	"station-docking-clearance-denied-no-docks" =
+	(
+		"Les autorisations d'appontage sont refusées à tous les vaisseaux.",
+		"L'appontage vous est interdit à cette station.",
+		"Négatif. Votre vaisseau ne peut pas apponter ici.",
+		"Docking clearance denied."
+	);
+	"station-docking-clearance-denied-no-docks-yet" =
+	(
+		"L'autorisation d'appontage est refusée actuellement.",
+		"Les appontements sont fermés. Veuillez revenir plus tard.",
+		"Nous n'avons aucun appontement ouvert actuellement.",
+		"Autorisation d'appontage refusée."
+	);
+	"station-docking-clearance-granted-until-@" =
+	(
+		"Vous êtes autorisé à apponter. Veuillez poursuivre votre manoeuvre. L'autorisation expire à %@",
+		"Vous  êtes autorisé à apponter, commandant. La fenêtre reste ouverte jusqu'à %@",
+		"Appontage autorisé. Vous avez un couloir d'approche ouvert jusqu'à %@. ",
+		"Permission accordée. Veuillez procéder à l'approche. Valide jusqu'à %@"
+	);
+	"station-docking-clearance-granted-in-@-until-@" =
+	(
+		"Vous êtes autorisé à apponter dans %@. Veuillez manoeuvrer. L'autorisation se termine à %@",
+		"Vous avez la permission d'apponter pour %@, commandant. Votre fenêtre reste ouverte jusqu'à %@",
+		"Appontage autorisé pour %@. Votre couloir d'approche se termine à %@",
+		"Permission accordée. Manoeuvrez pour l'approche de %@. Autorisation valide jusqu'à %@"
+	);
+	"station-docking-clearance-extended-until-@" =
+	(
+		"Votre extension d'autorisation d'appontage a été acceptée. Vous avez désormais jusqu'à %@"
+	);
+	"station-docking-clearance-about-to-expire" =
+	(
+		"Il vous reste 30 secondes pour apponter.",
+		"Votre fenêtre d'appontage va bientôt se refermer. Dépêchez-vous !",
+		"Attention ! Votre autorisation d'appontage se termine."
+	);
+	"station-docking-clearance-expired" =
+	(
+		"Votre autorisation d'appontage a expiré. Veuillez dégager le couloir d'approche."
+	);
+	"station-docking-clearance-cancelled" =
+	(
+		"Autorisation d'appontage annulée. Veuillez dégager la zone d'appontage."
+	);
+	"station-docking-clearance-abort-cancelled" =
+	(
+		"À cause d'une urgence, votre autorisation d'appontage a été annulée. Veuillez dégager immédiatement les abords de la station."
+	);
+	"station-docking-clearance-abort-cancelled-in-f" =
+	(
+		"À cause d'une urgence, votre autorisation d'appontage sera révoquée dans %.0f secondes. Veuillez dégager immédiatement."
+	);
+	"station-docking-clearance-fined-@-cr" =
+	(
+		"Vous avez reçu une amende de %@ pour appontage non autorisé. Apponter sans demander la permission n'est pas autorisé ici.",
+		"Vous avez reçu une amende de %@ pour avoir contrevenu au protocole d'appoontage. Apponter sans permission n'est pas autorisé ici.",
+		"Vous avez apponté sans permission. Pour cette infraction au code de procédure de la station, vous avez reçu une amende de %@."
+	);
+
+	// system description after a nova
+	"nova-system-description" =
+	(
+		"Le soleil %I est devenu une supernova, détruisant la planète et toute vie ici.  Attention aux perturbations de navigation et aux radiations dangereuses dans ce système."
+	);
+	"nova-system-government"		= "Système inhabité - pas de gouvernement";
+	"nova-system-economy"			= "Système inhabité - pas d'économie";
+	"nova-system-inhabitants"		= "Système inhabité";
+
+	// trumbles
+	"trumbles-eat-@"				= ( "Vos Groblems ont mangé un conteneur de %@." );
+	// internal damage
+	"@-damaged"						= ( "%@ endommagé." );
+	"@-destroyed"					= ( "%@ détruit." );
+	
+	// icons for the hud
+	"EQ_HARDENED_MISSILE" =
+	(
+		 0,  3,
+		 2,  1,
+		 2, -3,
+		 0, -1,
+		-2, -3,
+		-2,  1
+	);
+	"oolite-default-missile-icon" =
+	(
+		 0,  3,
+		 2,  0,
+		 1,  0,
+		 1, -2,
+		-1, -2,
+		-1,  0,
+		-2,  0
+	);
+	
+	"oolite-default-mine-icon" =
+	(
+		 0,  2,
+		 1,  1,
+		 1, -1,
+		 0, -2,
+		-1, -1,
+		-1,  1
+	);
+	// human surname namegen
+	"nom" =
+	(
+		"%R",
+		"[nom1]"
+	);
+	"nom1" =
+	(
+		"ben [nom11]",
+		"Mc[nom11]",
+		"O’[nom11]",
+		"Ath[enom2]",
+		"Br[nomvoweliy]an",
+		"Bran[nom2]",
+		"C[nomvowelar][nom2]",
+		"D[nomvowelar][nom2]",
+		"Dav[nomvoweliy][nom2]",
+		"Denn[nomvoweliy][nom2]",
+		"Eccl[enom2]",
+		"Fa[nomvoweliy]r[nom2]",
+		"Folk[nom2]",
+		"Garr[enom2]",
+		"Good[nom2]",
+		"Hector",
+		"Inn[enom2]",
+		"Jam[enom2]",
+		"Jon[nom2]",
+		"Kir[nom2]",
+		"L[nomvoweliy]ttle[nom2]",
+		"L[nomvowelar][nom2]",
+		"Na[nomvoweliy]l[nom2]",
+		"Neil[nom2]",
+		"Peter[nom2]",
+		"Orbit[nom2]",
+		"Roger[nom2]",
+		"Sam[nom2]",
+		"Star[nom2]",
+		"Th[nomvowelur]r[nom2]",
+		"Wilkin[nom2]",
+		"William[nom2]",
+		"%H[nom2]",
+		"%R[nom2]",
+		"%R-[nom1]",
+		"[nom1]-[nom11]"
+	);
+	"nom11" =
+	(
+		"Ath[enom2]",
+		"Br[nomvoweliy]an",
+		"Bran[nom2]",
+		"C[nomvowelar][nom2]",
+		"D[nomvowelar][nom2]",
+		"Dav[nomvoweliy][nom2]",
+		"Denn[nomvoweliy][nom2]",
+		"Folk[nom2]",
+		"Garri[nom2]",
+		"Good[nom2]",
+		"Hector",
+		"Inn[enom2]",
+		"Jam[enom2]",
+		"Jon[nom2]",
+		"Kir[nom2]",
+		"L[nomvoweliy]ttle[nom2]",
+		"L[nomvowelar][nom2]",
+		"Na[nomvoweliy]l[nom2]",
+		"Neil[nom2]",
+		"Peter[nom2]",
+		"Roger[nom2]",
+		"Sam[nom2]",
+		"Star[nom2]",
+		"Th[nomvowelur]r[nom2]",
+		"Wilkin[nom2]",
+		"William[nom2]",
+		"%H[nom2]",
+		"%R[nom2]"
+	);
+	"nom2" =
+	(
+		"",
+		"b[nomvowelur]rn",
+		"f[nomvowelur]r",
+		"st[nomvowelur]n",
+		"sen",
+		"son",
+		"son",
+		"sdott[nomvoweliy]r",
+		"s",
+		"s",
+		"sby",
+		"er",
+		"f[nomvoweliy]re",
+		"l[nomvoweliy]ng"
+	);
+	"enom2" =
+	(
+		"e",
+		"[nomvowelie]b[nomvowelur]rn",
+		"[nomvowelie]f[nomvowelur]r",
+		"[nomvowelie]st[nomvowelur]n",
+		"[nomvowelie]sen",
+		"[nomvowelie]son",
+		"eson",
+		"[nomvowelie]sdott[nomvoweliy]r",
+		"[nomvowelie]s",
+		"es",
+		"esby",
+		"[nomvowelie]f[nomvoweliy]re",
+		"l[nomvoweliy]ng"
+	);
+	"nomvowelie" =
+	(
+		"i",
+		"e",
+		"e",
+		"ie"
+	);
+	"nomvowelar" =
+	(
+		"ar",
+		"aw",
+		"arre",
+		"our"
+	);
+	"nomvowelur" =
+	(
+		"e",
+		"o",
+		"u",
+		"ou",
+		"ai"
+	);
+	"nomvoweliy" =
+	(
+		"i",
+		"y"
+	);
+	
+	// The four main views
+	"forward-view-string"			= "Vue de proue";
+	"aft-view-string"				= "Vue de poupe";
+	"port-view-string"				= "Vue de babord";
+	"starboard-view-string"			= "Vue de tribord";
+	
+	// GUI strings common to more than one screens
+	"gui-back"						= " Page précédente ";
+	"gui-more"						= " Page suivante ";
+	"press-space-commander"			= "Appuyez sur la barre d'espace, Commandant";
+	
+	// Demo2 screen
+	"unknown-ship-@"				= "Vaisseau inconnu '%@'.";
+
+	// Intro1 screen
+	"game-copyright"				= "par Giles Williams et contributeurs © 2003–2008";
+	"theme-music-credit"			= "Thème original d'Oolite par NoSleep © 2004";
+	"load-previous-commander"		= "Charger un commandant déjà créé (O/N) ?";
+	"load-previous-commander-yes"		= "O"; // Defines the key that corresponds to the yes answer to load-previous-commander.
+	"load-previous-commander-no"		= "N"; // Defines the key that corresponds to the no answer to load-previous-commander.
+	
+// Loading screen (currently Mac only), also logged under start.progress
+	"loading-ships"					= "Chargement des données des vaisseaux";
+	"populating-space"				= "Population de l'espace";
+	"initializing-debug-support"	= "Initialisation du support de debogage";
+	"running-scripts"				= "Utilisation des scripts des mondes";
+	"loading-scripts"				= "Chargement des scripts";
+	"Chargement des joueurs"				= "Loading saved game";
+	"loading-miscellany" =
+	(
+		"Perte de votre temps",
+		"Travail [1] dur",
+		"Quadrature des cercles",
+		"Consulter des consultants",
+		"Mise en réseau des courbes",
+		"Peigner les [12] girafes",
+		"Trucs que j'ai oubliés avant",
+		"Vous diffuser des informations techniques",
+		"Occuper la RAM",
+		"Simuler le big bang",
+		"Manipulation des bits",
+		"Se tourner les pouces",
+		"Invoquer %R",
+		"Jouer au [35] [34]",
+		"Faire chier les thargoïdes",
+		"Trucs techniques"
+	);
+
+// Status screen
+	"status-commander-@"			= "Commandant %@";
+	"status-present-system"			= "Système actuel :";
+	"status-hyperspace-system"		= "Système de destination :";
+	"status-condition"				= "Condition :";
+	"status-fuel"					= "Carburant :";
+	"status-light-years-desc"		= "Années-lumière";
+	"status-cash"					= "Argent :";
+	"status-legal-status"			= "Statut légal :";
+	"status-rating"					= "Score :";
+	"status-equipment"				= "Équipement :";
+	"equipment-fwd-weapon-@"		= "Proue : %@";
+	"equipment-aft-weapon-@"		= "Poupe : %@";
+	"equipment-stb-weapon-@"		= "Tribord : %@";
+	"equipment-port-weapon-@"		= "Babord : %@";
+	"equipment-single-pass-berth-@"	= "1 cabine de passager";
+	"equipment-multiple-pass-berth-@" = "%d cabines de  passager";
+	"equipment-@-not-available"		= "%@ (non disponible)";
+	"manifest-cargo-quantity-format" = "%d %@ × %@";	// $count $units × $commodityName
+
+	// Short and Long Range Chart Overrides
+	"charts-distance-f"	= "Distance : %.1f Années-lumière";
+	"charts-est-travel-time-f" = "Temps de voyage estimé : %.1f heures";
+		
+	// Short Range Chart Screen
+	"short-range-chart-title"		= "Carte locale";
+	"short-range-chart-distance-f"	= "[charts-distance-f]";
+	"short-range-chart-est-travel-time-f" = "[charts-est-travel-time-f]";
+	
+// Long Range Chart Screen
+	"long-range-chart-title-d"		= "Carte galactique %d";
+	"long-range-chart-title-0"		= "Carte galactique 1";
+	"long-range-chart-title-1"		= "Carte galactique 2";
+	"long-range-chart-title-2"		= "Carte galactique 3";
+	"long-range-chart-title-3"		= "Carte galactique 4";
+	"long-range-chart-title-4"		= "Carte galactique 5";
+	"long-range-chart-title-5"		= "Carte galactique 6";
+	"long-range-chart-title-6"		= "Carte galactique 7";
+	"long-range-chart-title-7"		= "Carte galactique 8";
+	"long-range-chart-distance-f"	= "[charts-distance-f]";
+	"long-range-chart-est-travel-time-f" = "[charts-est-travel-time-f]";
+	"long-range-chart-find-planet-@" = "Localiser la planète : %@";
+	"long-range-chart-system-unreachable" = "Système inaccessible";
+	
+	// Market screen
+// non-main stations	"commodity-market"				= "Marchandises disponibles";	// used if we're in witchspace. Needed for non-english languages.
+	"@-commodity-market"			= "Marchandises disponibles à %@";
+	"@-station-commodity-market"	= "Marché de %@"; // non-main stations
+	"commodity-column-title"		= "Marchandises :";
+	"price-column-title"			= "Prix :";
+	"for-sale-column-title"			= "À vendre :";
+	"in-hold-column-title"			= "En stock :";
+	"cash-@-load-d-of-d"			= "Montant : %@. Chargement : %d t de %d t.";
+	"cargo-tons-symbol"				= "t";
+	"cargo-grams-symbol"			= "g";
+	"cargo-kilograms-symbol"		= "kg";
+	"commodity-quantity-none"		= "—";
+	
+	// System data screen
+	"sysdata-planet-name-@"			="Informations sur %@";
+	"sysdata-eco"					= "Économie :";
+	"sysdata-govt"					= "Gouvernement  :";
+	"sysdata-tl"					= "Technicité :";
+	"sysdata-pop"					= "Population :";
+	"sysdata-billion-word"			= "Milliards";
+	"sysdata-prod"					= "Prod. planétaire brut :";
+	"sysdata-prod-worth"			= " %5d M ₢";
+	"sysdata-radius"				= "Rayon moyen :";
+	"system-description-string"		= "[14] est [22].";
+	
+	// Options / Loadsave screen
+	"options-quick-save"			= " Sauvegarde rapide ";
+	"options-save-commander"		= " Sauvegarder le commandant ";
+	"options-load-commander"		= " Charger un commandant ";
+	"options-begin-new-game"		= " Commencer un nouveau jeu ";
+	"options-game-options"			= " Options de jeu… ";
+	"options-exit-game"				= " Quitter le jeu ";
+	"options-reset-to-unrestricted-play" = " Retourner au jeu sans restriction ";
+	"options-reset-to-strict-play"	= " Retourner au jeu restreint ";
+	
+	// Gameoptions screen
+	"gameoptions-autosave-yes"				= " Sauvegarde automatique : activée ";
+	"gameoptions-autosave-no"				= " Sauvegarde automatique : désactivée ";
+	"gameoptions-sound-volume"				= " Volume sonore : ";
+	"gameoptions-gamma-value"				= " Gamma : ";
+	"gameoptions-sound-volume-mute"			= " Volume du son : Muet ";
+	"gameoptions-volume-external-only"		= " Volume du son : Contrôle externe uniquement ";
+	"gameoptions-spoken-messages-yes"		= " Messages parlés : activés ";
+	"gameoptions-spoken-messages-no"		= " Messages parlés : désactivés ";
+	"gameoptions-voice-@"					= " Voix : %@ ";
+	"gameoptions-voice-M"					= " Masculine ";
+	"gameoptions-voice-F"					= " Féminine ";
+	"gameoptions-music-mode-@"				= " Musique : %@ ";
+	"gameoptions-fullscreen-mode-d-by-d-at-g-hz" = " Mode plein écran : %d × %d at %.3g Hz ";
+	"gameoptions-fullscreen-mode-d-by-d"	= " Mode plein écran : %d × %d ";
+	"gameoptions-play-in-window"			= " Jeu en fenêtre ";
+	"gameoptions-play-in-fullscreen"		= " Jeu en plein écran ";
+	"gameoptions-joystick-configuration"	= " Configuration de la manette de jeu ";
+	"gameoptions-wireframe-graphics-yes"	= " Graphisme en fil de fer : activé ";
+	"gameoptions-wireframe-graphics-no"		= " Graphique en fil de fer : désactivés ";
+	"gameoptions-procedurally-textured-planets-yes"	= " Détails des planètes : activés ";
+	"gameoptions-procedurally-textured-planets-no"	= " Détails des planètes désactivés ";
+	"gameoptions-reduced-detail-yes"		= " Détails réduits : activés ";
+	"gameoptions-reduced-detail-no"			= " Détails réduits : désactivés ";
+	"gameoptions-shaderfx-not-available"	= " Shader Effects : non disponibles ";
+	"gameoptions-shaderfx-@"				= " Shader Effects : %@ ";
+	"gameoptions-docking-clearance-yes"		= " Protocole d'appontage : activé ";
+	"gameoptions-docking-clearance-no"		= " Protocole d'appontage : désactivé ";
+	"shaderfx-not-available"				= "Indisponible";
+	"shaderfx-off"							= "Désactivé";
+	"shaderfx-simple"						= "Simple";
+	"shaderfx-full"							= "Complet";
+	
+// StickMapper screen
+	"stickmapper-roll"				= "Assiette";
+	"stickmapper-pitch"				= "Inclinaison";
+	"stickmapper-yaw"				= "Lacet";
+	"stickmapper-increase-thrust"	= "Augmenter la puissance";
+	"stickmapper-decrease-thrust"	= "Baisser la puissance";
+	"stickmapper-primary-weapon"	= "Armement primaire";
+	"stickmapper-secondary-weapon"	= "Armement secondaire";
+	"stickmapper-arm-secondary"		= "Armer le secondaire";
+	"stickmapper-disarm-secondary"	= "Désarmer le secondaire";
+	"stickmapper-target-nearest-incoming-missile"	= "Cibler le missile en approche";
+	"stickmapper-cycle-secondary"	= "Changer le secondaire";
+	"stickmapper-weapons-online-toggle"	= "Alterner les armes";
+	"stickmapper-ECM"				= "ECM";
+	"stickmapper-toggle-ID"			= "Alterner ID";
+	"stickmapper-previous-target"	= "Sélectionner la cible précédente";
+	"stickmapper-next-target"		= "Selectionner la cible suivante";
+	"stickmapper-fuel-injection"	= "Injection de carburant";
+	"stickmapper-hyperspeed"		= "Hypervitesse";
+	"stickmapper-roll/pitch-precision-toggle"	= "Alterner la précision du Roulis/tangage";
+	"stickmapper-snapshot"			= "Prendre une photo";
+	"stickmapper-view-forward"		= "Vue de proue";
+	"stickmapper-view-aft"			= "Vue de poupe";
+	"stickmapper-view-port"			= "Vue de babord";
+	"stickmapper-view-starboard"	= "Vue de tribord";
+	"stickmapper-prime-equipment"	= "équipment initialisé";
+	"stickmapper-activate-equipment"	= "Activerl'équipement";
+	"stickmapper-escape-pod"		= "capsule de sauvetage";
+	"stickmapper-cloak"				= "dispositif de furtivité";
+	"stickmapper-scanner-zoom"		= "Zoom du scanner";
+	
+	"music-mode" =
+	(
+		"désactivée",
+		"activée",
+		"iTunes"
+	);
+	
+	// Equip ship screen
+	"equip-title"					= "Équipement du vaisseau";
+	"equip-cash-@"					= "Argent : %@.";
+	"equip-no-equipment-available-for-purchase" = "Aucun équipement disponible à l'achat.";
+	"equip-repair-@"				= " Reparation : %@";
+	"upgradeinfo-@-price-is-for-repairing" = "%@ (Coût pour la réparation des systèmes existants).";
+	"@-will-replace-other-energy"	="%@ (La recharge d'énergie sera retirée et vendue à la ferraille.).";
+"upgradeinfo-@-weight-d-of-equipment" = "%@\nPrend l'espace de %dt dans la soute .";
+	"forward-facing-string"			= " Proue : ";
+	"aft-facing-string"				= " Poupe : ";
+	"port-facing-string"			= " Babord : ";
+	"starboard-facing-string"		= " Tribord : ";
+"@-select-where-to-install"		= "%@\nVeuillez sélectionner la position de cette arme.";
+	"weapon-installed-@"			= "Arme installée : %@.";
+	"weapon-@-enter-to-replace"		= "Arme installée : %@.  Appuyer Entrée pour la remplacer.";
+	"no-weapon-enter-to-install"	= "Aucune arme installée. Appuyer Entrée pour l'installer ici.";
+
+// Interfaces screen
+	"interfaces-title"								= "Interfaces vaisseau et station ";
+	"interfaces-no-interfaces-available-for-use"	= "Aucune interface n'est installée sur votre vaisseau ou n'est disponible à cette station.";
+	"interfaces-for-ship-@-and-station-@"			= "Interfaces entre %@ et %@";
+// standard categories for easy translations
+	"interfaces-category-uncategorised"				= "Sans catégorie";	
+	"interfaces-category-bounties"            = "Primes";	
+	"interfaces-category-deliveries"          = "Livraisons";	
+	"interfaces-category-employment"          = "Emploi";	
+	"interfaces-category-help"                = "Aide";	
+	"interfaces-category-logs"                = "Statistiques";	
+	"interfaces-category-news"                = "Actualités";	
+	"interfaces-category-organisations"       = "Organisations";	
+	"interfaces-category-ship-systems"        = "Systèmes du vaisseaux";	
+	
+	
+	// Contracts screen
+	"@-contracts-title"				= "Marché de transport de %@";
+	
+	// contracts-to and contracts-within are common for both passengers and cargo.
+	"contracts-to"					= "Vers :";
+	"contracts-within"				= "Dans :";
+	"contracts-passenger-name"		= "Nom du passager :";
+	"contracts-passenger-advance"	= "Arrhes :";
+	"contracts-passenger-fee"		= "Paiement :";
+	"contracts-cargo-cargotype"		= "Cargaison :";
+	"contracts-cargo-premium"		= "Prime :";
+	"contracts-cargo-pays"			= "Paiement :";
+	"contracts-cash-@-load-d-of-d-passengers-d-of-d-berths%0" = "Montant : %@. Chargement : %d t sur un total de %d t. Passager : %d en %d cabine.";
+	"contracts-cash-@-load-d-of-d-passengers-d-of-d-berths%1" = "Montant : %@. Chargement : %d t sur un total de %d t. Passager : %d en %d cabines.";
+	"contracts-@-a-@-wishes-to-go-to-@" = "%@, un %@, souhaite se rendre à %@.";
+	"contracts-@-the-route-is-f-light-years-long-a-minimum-of-d-jumps%0" = "%@ La route est longue de %.1f années-lumières, un minimum de %d bond.";	
+	"contracts-@-the-route-is-f-light-years-long-a-minimum-of-d-jumps%1" = "%@ La route est longue de %.1f années-lumières, un minimum de %d bonds.";
+	"contracts-@-you-will-need-to-depart-within-@-in-order-to-arrive-within-@-time" = "%@ Vous devrez partir avant %@, pour arriver dans %@.";
+	"contracts-@-you-will-need-to-arrive-within-@-time" = "%@ Vous devrez arriver dans moins de %@.";
+	"contracts-@-will-pay-@-@-in-advance-and-@-on-arrival" = "%@ vous payera %@: %@ en avance et %@ à l'arrivée.";
+	"contracts-deliver-a-cargo-of-@-to-@" = "Livrez une cargaison de %@ à %@.";
+	"contracts-@-the-contract-will-cost-you-@-and-pay-a-total-of-@" = "%@ Le contrat vous coûtera %@ et sera payé un total de %@.";
+	"contracts-no-time"				= "pas de temps";
+	"contracts-day-word"			= "jour";
+	"contracts-day-word-plural"		= "jours";
+	"contracts-hour-word"			= "h";
+	"contracts-hour-word-plural"	= "h";
+	"contracts-minute-word"			= "mn";
+	"contracts-minute-word-plural"	= "mn";
+	"contracts-second-word"			= "sec.";
+	"contracts-second-word-plural"	= "sec.";
+	
+	"cargo-ton"						= "t";
+	"cargo-gram"					= "gr";
+	"cargo-kilogram"				= "Kg";
+	"cargo-tons"					= "t";
+	"cargo-grams"					= "gr";
+	"cargo-kilograms"				= "Kg";
+	
+	// Ship’s manifest screen
+	"manifest-title"				= "Manifeste du vaisseau";
+	"manifest-none"					= " Aucun.";
+	"manifest-cargo-d-d"			= "Cargaison de %d t (%d t maximum) :";
+	"manifest-passengers-d-d"		= "%d Passagers (%d maximum) :";
+	"manifest-parcels"				= "Colis :";
+	"manifest-contracts"			= "Contrats :";
+	"manifest-missions"				= "Missions :";
+	"manifest-@-travelling-to-@-to-arrive-within-@"	= " %@ voyageant vers %@ devant arriver avant %@.";
+	"manifest-deliver-@-to-@within-@"	= " Livraison de %@ à %@ dans %@.";
+
+	// Shipyard screen
+	"@-shipyard-title"				= "Rafiots d'occase à %@ ";
+	"shipyard-shiptype"				= "Modèles :";
+	"shipyard-price"				= "Prix :";
+	"shipyard-cargo"				= "Cargaison :";
+	"shipyard-cargo-d-tc"			= "Cargaison : %d t";
+	"shipyard-speed"				= "Vitesse :";
+	"shipyard-speed-f-ls"			= "Vitesse : %.3f AL";
+	"shipyard-no-ships-available-for-purchase" = "Aucun vaisseau à vendre. Tout est parti !";
+	"shipyard-your-@-trade-in-value-@" = "Valeur de revente de votre %@ : %@.";
+	"shipyard-total-available-%@-%@-plus-%@-trade" = "Total disponible : %@. (%@ en argent + %@ en revente.)";
+	"passenger-berth%0"				= "Cabine de passager";
+	"passenger-berth%1"				= "Cabines de passager";
+	"extra-@-@-(long-description)"			= " Supplément %@ (%@)";
+	"extra-@-@-(passenger-berths)"			= " Supplément %@ %@";
+	"extra-@-@-@-(passenger-berth-long-description)" =	"Supplément %@%@ (%@)";
+	"plus-@"						= " Plus %@.";
+	"shipyard-standard-customer-model" = " modèle courant.";
+	"shipyard-forward-weapon-has-been-upgraded-to-a-@" = " L'armement de proue a été amélioré avec un %@.";
+	"shipyard-forward-weapon-upgraded-to-@" = " Armement de proue amélioré avec un %@.";
+	"shipyard-selling-price-@"		= " Prix de vente : %@.";
+	"shipyard-price-@"				= " Prix %@.";
+
+	// Load/Save screens shared information
+	"loadsavescreen-commander-name" = "Nom du commandant";
+	"loadsavescreen-rating"		= "Score";
+	"loadsavescreen-no-commanders-found" = "Aucun commandant sauvegardé";
+	"loadsavescreen-commander-@-rated-@-has-@-legal-status-@-ship-@-location-@-g-@-timestamp-@" = "Commandant %@ est évalué comme %@ et dispose de %@ en banque. Statut légal : %@. Vaisseau : %@. Emplacement : %@ (G%d). Heure locale : %@";
+	"loadsavescreen-hold-@-and-press-return-to-open-folder-@"= "Maintenir %@ enfoncé et appuyer Retour pour revenir au dossier : %@";
+	"loadsavescreen-hold-@-and-press-return-to-open-parent-folder-@" = "Maintenir %@ enfoncé et appuyer sur Retour pour ouvrir le dossier parent : %@";
+	
+	// Load commander screen
+	"loadscreen-title"				= "Sélectionner un commandant";
+	
+	// Load game failed messages
+	"loadfailed-saved-game-failed-to-load"	= "Impossible de charger le jeu sauvegardé.";
+	"loadfailed-no-file-specified"		= "Aucun fichier indiqué.";
+	"loadfailed-could-not-load-file"	= "Impossible de charger le fichier.";
+	"loadfailed-could-not-use-ship-type-@-please-switch-to-unrestricted"
+						= "Impossible d'utiliser le vaisseau “%@” en jeu restreint - Veuillez passer en jeu sans restriction d'abord.";
+	"loadfailed-could-not-find-ship-type-@-please-reinstall-the-appropriate-OXP"
+						= "Impossible de trouver le vaisseau de type “%@” - Veuillez réinstaller l'OXP correspondant.";
+	"loadfailed-invalid-saved-game-no-ship-specified"
+						= "Jeu sauvegardé invalide - aucun vaisseau précisé.";
+	"loadfailed-could-not-set-up-player-ship"	= "Impossible de paramétrer le vaisseau du joueur.";
+	"loadfailed-could-not-reset-javascript"		= "Le moteur du jeu se remet à zéro durant le chargement.";
+	
+	// Save/Overwrite commander screens
+	"savescreen-title"				= "Sauvegarder le commandant";
+	"savescreen-commander-name-@"	= "Nom du commandant : %@";
+	"savescreen-commander-name"		= "Nom du commandant : ";
+	"overwrite-save-commander-@"	= "Sauvegarder le commandant %@";
+	"overwritescreen-commander-@-already-exists-overwrite-query" = "Un fichier au nom de %@ existe déjà. Souhaitez-vous l'écraser ?";
+	"overwritescreen-yes"			= " Écraser ";
+	"overwritescreen-no"			= " Annuler ";
+	
+	// Mission screen
+	"mission-information"			= "Présentation de la mission";
+	
+	// Game Over screen
+	"gameoverscreen-escape-pod"		= "L'éjection de la capsule de sauvetage a échoué !";
+	"gameoverscreen-score-@"		= "Score : %@, [credits_number] ₢";
+	"gameoverscreen-game-over"		= "Jeu terminé";
+	"gameoverscreen-press-space"	= "Appuyer sur la barre d'espace";
+
+// Screen shots
+	"snapshots-directory-name"		= "Captures d'écran";
+	"snapshots-directory-name-mac"	= "Captures d'écran Oolite";
+	
+	// Various HUD dials and/or messages and miscellaneous strings
+	"no-target-string"				= "Pas de cible";
+	"communications-log-string"		= "Derniers messages";
+	"adjusting-word"				= " (ajustement horaire)";
+	"strict-play-enabled"			= "Jeu restreint activé";
+	"unrestricted-play-enabled"		= "Jeu sans restriction activé";
+	"human-word"					= "humain"; // Important – only lower case characters here!
+	"human-colonial-description%0"	= "Colon humain";
+	"human-colonial-description%1" = "Colons humains";
+	"clock-format"					= "%07d:%02d:%02d:%02d";
+	"clock-format-adjusting"		= "%07d:%02d:%02d:%02d (ajustement horaire)";
+	"danger-fuel-leak"				= "Danger ! Fuite de carburant !";
+	"legal-desc-alien"				= "Indigène";
+	"legal-desc-system-vessel"		= "Vaisseau du système";
+	"legal-desc-military-vessel"	= "Vaisseau militaire";
+	"planetname-derivative-suffix"	= "ien";	// This is the suffix used with %I (producing 'Laveian' for example)
+	"wormhole-desc"				= "Trou de ver";
+	"wormhole-to-@"				= "Trou de ver vers %@";
+	"wormhole-destination-computed-@"	= "Détecteur de tunnels spatio-temporels - Destination calculée : %@";
+	"wormhole-arrival-time-computed-@"	= "Détecteur de tunnels spatio-temporels - Heure d'arrivée calculée : %@";
+	"wormhole-ETA-@"			= "Estimation de l'heure d'arrivée: %@";
+	"wormhole-collapsing-in-mm:ss"		= "Effondrement du tunnel dans %02d:%02d";
+	
+	"oxp-is-incompatible"			= "\t“%@” est incompatible avec cette version %@ d'Oolite.";
+	
+// Character description: "<name> is a {frequent|etc} {offender|fugitive} from <system name>". Never actually visible.
+	"lowercase-offender"			= "délinquant";
+	"lowercase-fugitive"			= "fugitif";
+
+	
+	// delivery reports
+"arrival-report-title"			= "Rapport d'arrivée à %H";
+	
+	"passenger-delivered-okay-@-@-@" = "%@ vous remercie et vous paye %@ pour l'avoir transporté à %@.\n";
+	"passenger-delivered-late-@-@-@" = "%@ vous paye %@ pour l'avoir enfin débarqué à %@.\n";
+	"passenger-failed-@"			= "%@ quitte le vaisseau, énervé que vous lui ayez fait perdre autant de son temps.\n";
+
+	"parcel-delivered-okay-@-@" = "vous livrez les %@ et recevez %@.\n";
+	"parcel-delivered-late-@-@" = "Vous êtes en retard pour la livraison des %@ et recevez seulement %@.\n";
+	"parcel-failed-@"			= "Vous avez raté la livraison des %@ à temps et ne serez pas payé.\n";
+	"parcel-description"  = 
+	(	
+			"Vidéos de [35] [34]",
+			"Données de sauvegarde",
+			"Déclarations fiscales",
+			"Demandes de permis B-42",
+			"Recettes du [30] en [33]"
+				);
+
+	"cargo-delivered-okay-@-@"		= "Des droïdes déchargent les %@ et vous êtes payés %@.";
+	"cargo-delivered-short-@-@-d"	= "Des droïdes déchargent les %@ mais vous êtes payé seulement %@ avec une pénalité de %d pour cent pour cause de retard.";
+	"cargo-refused-short-%@"		= "Vous n'avez pas assez en stock pour livrer la cargaison de %@.";
+	"cargo-delivered-late-@"		= "Vous avez raté la livraison de %@ à la date prévue et personne ne veut la payer.";
+	"cargo-failed-@"				= "Vous avez échoué à livrer la cargaison de %@ à la date prévue et plus personne ne la payera.";
+	
+// background scenes for GUI screens
+	"gui-scene-show-planet"			= ( "target-planet   114 74 560" );
+	"gui-scene-show-local-planet"	= ( "local-planet   114 74 560" );
+	
+// character descriptions
+// basic short desc - “A $species from $homeworld”
+	"character-a-@-from-@"			= "un %@ de %@";
+	
+// rewards and bounties from escapepods
+	"rescue-reward-for-@@-@-credits" = "Pour le sauvetage de %@, %@, son assurance vous récompense de %@ ₢.\n";
+	"capture-reward-for-@@-@-credits" = "Pour la capture de %@, %@, vous recevez une prime de %@ ₢.\n";
+	"rescue-reward-for-@@-@-credits-@-alt" = (
+							"Pour le sauvetage de %@, %@, son assurance paye %@ ₢. Ceci inclut un pot-de-vin de %@ ₢ pour effacer son casier judiciaire.\n",
+							"Les Galac-flics attendent %@, %@, mais après une vive discussion et un échange de crédits, ils repartent. Son assurance vous paye %@ ₢. (%@ ₢ sont allés au pot-de-vin.)\n"
+							);
+	"capture-reward-for-@@-@-credits-@-alt" = (
+							"Pour la capture de %@, %@, vous recevez une prime de %@ ₢. La prime d'assurance de  %@ va en taxes gouvernementales.\n",
+							"Les Galac-Flics escortent, hors du hangar, %@ qui proteste vivement. On vous remet un récépissé de prime valant %@ ₢ au lieu d'un remboursement d'assurance de %@ ₢.\n"
+							);
+	
+	// Commodity names
+	"commodity-name food"="Nourriture";
+	"commodity-name textiles"= "Textiles";
+	"commodity-name radioactives"= "Matières radioactives";
+	"commodity-name slaves"= "Esclaves";
+	"commodity-name liquor/wines"= "Vins et spiritueux";
+	"commodity-name luxuries"= "Produits de luxe";
+	"commodity-name narcotics"= "Drogues";
+	"commodity-name computers"= "Ordinateurs";
+	"commodity-name machinery"= "Machines-outil";
+	"commodity-name alloys"= "Alliages";
+	"commodity-name firearms"= "Armes";
+	"commodity-name furs"= "Fourrures";
+	"commodity-name minerals"= "Minerais";
+	"commodity-name gold"= "Or";
+	"commodity-name platinum"= "Platine";
+	"commodity-name gem-stones"= "Pierre précieuses";
+	"commodity-name alien items"= "Objets alien";
+// Commodity names: new spellings
+	"commodity-name liquor_wines"	= "Vins et spiritueux";
+	"commodity-name gem_stones"		= "Gemmes";
+	"commodity-name alien_items"		= "Objets alien";
+	
+	//autosave filename
+	"autosave-commander-suffix"		= "(sauvegarde auto)";
+	
+// Nova mission strings
+	"oolite-nova-coward"			= "Lâche ! Tu as décidé de ne pas aider les réfugiés !";
+	"oolite-nova-refugees"			= "Une soute pleine de %I refugiés.";
+	"oolite-nova-visit-main"		= (
+							"Tous les services sont suspendus. Des services d'urgence peuvent encore être opérationnels à la station principale. ",
+							"Toutes les installations sont fermées durant cette situation d'urgence. Présentez-vous à la station principale du système.",
+							"Tous le personnel a été évacué vers la station orbitale principale. Veuillez vous présenter là-bas."
+						);
+	"oolite-nova-distress-call"		= (
+							"Attention : le soleil %I se transforme en supernova. Tous les pilotes sont demandés à la station principale.",
+							"Le soleil de %H est devenu instable. Rendez-vous immédiatement à la station principale.",
+							"Alerte ! Une aide d'urgence est nécessaire à la station principale.",
+							"À tous les vaisseaux : ceci est une alerte Sierra November. La station principale demande votre assistance."
+						  );
+	
+// Locale-specific defaults
+	"espeak-default-voice"	= "default";
+	
+	"speech-synthesis-incoming-message"	= "Message entrant";
+	"speech-synthesis-incoming-message-@"	= "[speech-synthesis-incoming-message]: %@";
+	
+// Mac multi-screen handling
+	"oolite-mac-bad-display" = "La configuration de l'affichage a changé d'une manière qui peut avoir des conséquences pour les performances d'Oolite.";
+	"oolite-mac-bad-display-2" = "La fenêtre principale d'Oolite est désormais sur un écran qui n'est pas connecté à un processeur graphique compatible avec Oolite. Oolite devrait pouvoir continuer à fonctionner mais avec des performances dégradées.";
+}

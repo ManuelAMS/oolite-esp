@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+
+<array>
+	<array>
+		<integer>0</integer>
+		<integer>2</integer>
+		<string>Treibstoff</string>
+		<string>EQ_FUEL</string>
+		<string>Treibstoff für den Hyperraumantrieb.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+			<key>requires_non_full_fuel</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<integer>1</integer>
+		<integer>300</integer>
+		<string>Rakete</string>
+		<string>EQ_MISSILE</string>
+		<string>Faulcon de Lacy HM3 Zielsuchende Rakete, schnell und genau in Verbindung mit einem Standart Zielsucher.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+			<!-- NOTE: for reasons of backwards compatibility, this defaults to true for equipment whose key ends with MISSILE or MINE. -->
+			<key>requires_empty_pylon</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<integer>1</integer>
+		<integer>4000</integer>
+		<string>Laderaumausbau</string>
+		<string>EQ_CARGO_BAY</string>
+		<string>Rumpfmodifikation um den Laderaum etwas zu erweitern.</string>
+	</array>
+	<array>
+		<integer>2</integer>
+		<integer>6000</integer>
+		<string>Störsender</string>
+		<string>EQ_ECM</string>
+		<string>Hochenergie-Störsender der Raketen auf Distanz zerstören kann.</string>
+	</array>
+	<array>
+		<integer>5</integer>
+		<integer>5250</integer>
+		<string>Ladesauger</string>
+		<string>EQ_FUEL_SCOOPS</string>
+		<string>Grosse Laderampe mit Magnetgreifern die im Flug Erze und Bergungsgut einsammeln und Treibstoffgase von einem Gasriese einsaugen kann.</string>
+	</array>
+	<array>
+		<integer>6</integer>
+		<integer>10000</integer>
+		<string>Rettungskapsel</string>
+		<string>EQ_ESCAPE_POD</string>
+		<string>Eine einfache Fluchtkapsel mit Lebenserhaltungssystem, kombiniert mit einer umfassenden Schiffsversicherung.</string>
+	</array>
+	<array>
+		<integer>7</integer>
+		<integer>9000</integer>
+		<string>Energiebombe</string>
+		<string>EQ_ENERGY_BOMB</string>
+		<string>Eine Superwaffe, die nur einmal gezündet werden kann, dafür aber alle kleineren Schiffe in Reichweite vernichtet.</string>
+	</array>
+	<array>
+		<integer>8</integer>
+		<integer>15000</integer>
+		<string>Energie-Schnelllader</string>
+		<string>EQ_ENERGY_UNIT</string>
+		<string>Schnelleres Energieladegerät.</string>
+		<dict>
+			<key>incompatible_with_equipment</key>
+			<string>EQ_NAVAL_ENERGY_UNIT</string>
+		</dict>
+	</array>
+<!-- next item has a TL too high to be available at all -->
+	<array>
+		<integer>99</integer>
+		<integer>500000</integer>
+		<string>Marine Energie-Schnelllader</string>
+		<string>EQ_NAVAL_ENERGY_UNIT</string>
+		<string>Sehr schnelleres Energieladegerät, in Marineraumschiffen schon vorhanden.</string>
+		<dict>
+			<key>incompatible_with_equipment</key>
+			<string>EQ_ENERGY_UNIT</string>
+		</dict>
+	</array>
+	<array>
+		<integer>9</integer>
+		<integer>15000</integer>
+		<string>Automatisches Andocksystem </string>
+		<string>EQ_DOCK_COMP</string>
+		<string>Ein einfacher Autopilot der an Raumstationen andocken kann.</string>
+	</array>
+	<array>
+		<integer>10</integer>
+		<integer>50000</integer>
+		<string>Galaktischer Hyperraumantrieb</string>
+		<string>EQ_GAL_DRIVE</string>
+		<string>Einmalige Überladung des Hyperraumantriebs, ermöglicht Intergalaktische Reisen.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<integer>3</integer>
+		<integer>4000</integer>
+		<string>Puls Laser</string>
+		<string>EQ_WEAPON_PULSE_LASER</string>
+		<string>Hochenergie Pulslaser, die Standart Verteidigungswaffe.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<integer>4</integer>
+		<integer>10000</integer>
+		<string>Strahllaser</string>
+		<string>EQ_WEAPON_BEAM_LASER</string>
+		<string>Dieser kontinuierliche Laser liefert mehr Energie in weniger Zeit.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<integer>10</integer>
+		<integer>8000</integer>
+		<string>Bergbaulaser</string>
+		<string>EQ_WEAPON_MINING_LASER</string>
+		<string>Hochenergie Puls aber lange Aufladezeit. Ideal um Mineralien aus grossen Asteroiden zu schiessen.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<integer>10</integer>
+		<integer>60000</integer>
+		<string>Militärlaser</string>
+		<string>EQ_WEAPON_MILITARY_LASER</string>
+		<string>Verbesserter Strahllaser, entwickelt für die Marine.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+		</dict>
+	</array>
+	<!-- next item has a TL too high to be available at all -->
+	<array>
+		<integer>99</integer>
+		<integer>500000</integer>
+		<string>Tarnvorrichtung</string>
+		<string>EQ_CLOAKING_DEVICE</string>
+		<string>Experimentelle Tarnvorrichtung der Marine.</string>
+		<dict>
+			<key>portable_between_ships</key>
+			<true/>
+			<key>available_to_all</key>
+			<true/>
+		</dict>
+	</array>
+<!-- next items are new items, don't place new items before this mark -->
+	<array><!-- Passenger Compartment, like missiles this can be bought multiple times -->
+		<integer>5</integer>
+		<integer>8250</integer>
+		<string>Passagierkabine - benötigt 5t vom Laderaum</string>
+		<string>EQ_PASSENGER_BERTH</string>
+		<string>Liefert Lebenserhaltung, Unterhaltung und Komfort für einen einzelnen Passagier.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+			<key>requires_cargo_space</key>
+			<integer>5</integer>
+		</dict>
+	</array>
+	<array><!-- Passenger Compartment Removal -->
+		<integer>1</integer>
+		<integer>1000</integer>
+		<string>Passagierkabine entfernen - gibt 5t Laderaum frei</string>
+		<string>EQ_PASSENGER_BERTH_REMOVAL</string>
+		<string>Eine Passagierkabine demontieren.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+			<key>requires_free_passenger_berth</key>
+			<true/>
+		</dict>
+	</array>
+	<array><!-- Missile Removal -->
+		<integer>1</integer>
+		<integer>200</integer>
+		<string>Demontage und Verkauf aller Raketen und Minen</string>
+		<string>EQ_MISSILE_REMOVAL</string>
+		<string>Demontiert, sichert und verkauft alle vorhandenen Raketen und Minen zum Marktwert.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+			<key>requires_mounted_pylon</key>
+			<true/>
+		</dict>
+	</array>
+	<array><!-- ecm hardened missile -->
+		<integer>9</integer>
+		<integer>3500</integer>
+		<string>Störsenderfeste Rakete</string>
+		<string>EQ_HARDENED_MISSILE</string>
+		<string>Faulcon de Lacy HMX5 Zielsuchende Rakete, Resistent gegen Störsender.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+			<!-- NOTE: for reasons of backwards compatibility, this defaults to true for equipment whose key ends with MISSILE or MINE. -->
+			<key>requires_empty_pylon</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<integer>10</integer>
+		<integer>6000</integer>
+		<string>Einspritzdüse für Hyperraumtreibstoff</string>
+		<string>EQ_FUEL_INJECTION</string>
+		<string>Unbenutzer Hyperraumtreibstoff wird in den Normalantrieb eingesprizt, was die Geschwindigkeit stark erhöht.</string>
+	</array>
+	<array>
+		<integer>11</integer>
+		<integer>4500</integer>
+		<string>Erweiterter Scanner</string>
+		<string>EQ_SCANNER_SHOW_MISSILE_TARGET</string>
+		<string>Blendet Reichweite und Fahndungslevel des markierten Zieles ein.</string>
+	</array>
+	<array>
+		<integer>5</integer>
+		<integer>3250</integer>
+		<string>Mehrfach-Zielerfassung</string>
+		<string>EQ_MULTI_TARGET</string>
+		<string>Erlaubt zwischen Raketen und mehreren Zielen zu wechseln.</string>
+	</array>
+	<array>
+		<integer>7</integer>
+		<integer>6500</integer>
+		<string>Verbesserter Weltraumkompass</string>
+		<string>EQ_ADVANCED_COMPASS</string>
+		<string>Ein Tyley-Feynman GW-99 Astro-Navigation Kompass mit wählbaren Zielerfassungmodi.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<integer>6</integer>
+		<integer>22500</integer>
+		<string>Routenplaner</string>
+		<string>EQ_ADVANCED_NAVIGATIONAL_ARRAY</string>
+		<string>Erweiterte Software für den Navigationscomputer, verbessert das Kartenlesen und ermöglicht Routenplanung.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<integer>8</integer>
+		<integer>12500</integer>
+		<string>Speichererweiterung der Zielerfassung</string>
+		<string>EQ_TARGET_MEMORY</string>
+		<string>16 Speicherkerne ermöglichen die Auswahl vorheriger Ziele.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<integer>99</integer>
+		<integer>150000</integer>
+		<string>Thargoiden Laser</string>
+		<string>EQ_WEAPON_THARGOID_LASER</string>
+		<string>Erbeuteter Thargoiden Laser, zielt automatisch.</string>
+	</array>
+	<array>
+		<integer>6</integer>
+		<integer>25000</integer>
+		<string>Quirium Kaskadenmine</string>
+		<string>EQ_QC_MINE</string>
+		<string>Tyley-Feynman Quirium Kaskadenmine, montiert wie eine Rakete, wirkt aber nach hinten. Die Explosionswelle verursacht massive Schäden und kann eine Kettenreaktion im Hyperantrieb auslösen.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+			<!-- NOTE: for reasons of backwards compatibility, this defaults to true for equipment whose key ends with MISSILE or MINE. -->
+			<key>requires_empty_pylon</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<integer>10</integer>
+		<integer>147500</integer>
+		<string>Schildverstärker</string>
+		<string>EQ_SHIELD_BOOSTER</string>
+		<string>Ein Schildverstärker erhöht enorm die Leistungsfähigkeit der Schildgeneratoren.</string>
+	</array>
+	<array>
+		<integer>13</integer>
+		<integer>475500</integer>
+		<string>Militärischer Schildverstärker</string>
+		<string>EQ_NAVAL_SHIELD_BOOSTER</string>
+		<string>Weitere Verstärkung der Schilde mit Militärtechnologie.</string>
+	</array>
+	<!-- next item was a test item -->
+	<array>
+		<integer>2</integer>
+		<integer>2000</integer>
+		<string>Zwilings Plasma Kanone</string>
+		<string>EQ_WEAPON_TWIN_PLASMA_CANNON</string>
+		<string>Diese Kanone verschiesst aufgeladene Plasma-Feürstösse mit Unterlicht-Geschwindigkeit.</string>
+	</array>
+	<!-- new items -->
+	<array>
+		<integer>4</integer>
+		<integer>15000</integer>
+		<string>Externes Hitzeschild</string>
+		<string>EQ_HEAT_SHIELD</string>
+		<string>Zusätzliche Hitzeschutzkacheln, bietet keine Panzerung nur Hitzeisolierung.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+		</dict>
+	</array>
+	<!-- renovation -->
+	<array>
+		<integer>6</integer>
+		<integer>1000</integer>	<!-- dummy value, actually 10% of the ship's value which will vary by ship -->
+		<string>Generalüberholung</string>
+		<string>EQ_RENOVATION</string>
+		<string>Reinigung, Ausbesserung des Rumpfs, De-Ionisierung, Feineinstellung der Systeme und neuem Farbanstrich, inkl. Trockendockgebühren.</string>
+		<dict>
+			<key>available_to_all</key>
+			<true/>
+		</dict>
+	</array>
+	<!-- next item has a TL too high to be available at all -->
+	<array>
+		<integer>99</integer>
+		<integer>1500000</integer>
+		<string>Militärischer Scanner Störsender</string>
+		<string>EQ_MILITARY_JAMMER</string>
+		<string>Dieser Störsender blockiert die Scanner der anderen Schiffe.</string>
+	</array>
+	<!-- next item has a TL too high to be available at all -->
+	<array>
+		<integer>99</integer>
+		<integer>250000</integer>
+		<string>Filter gegen Militärische Scanner Störsender</string>
+		<string>EQ_MILITARY_SCANNER_FILTER</string>
+		<string>Filtert die Störsender aus und macht die Schiffe wieder erkennbar.</string>
+	</array>
+</array>
+</plist>

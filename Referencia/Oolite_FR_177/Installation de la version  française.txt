@@ -1,0 +1,19 @@
+﻿Bonjour et bienvenue dans l'Oonivers en français.
+
+1. Placez les fichiers .plist de ce dossier dans le répertoire
+oolite/oolite.app/Ressources/Config - Écraser les précédents.
+
+2. Démarrez le jeu en gardant la touche Majuscule (Shift) appuyée jusqu'à ce que vous 
+voyiez le vaisseau spatial tournoyer.
+
+3. À vous de jouer, Commandant.
+
+
+Merci de me signaler les erreurs d'orthographe
+ou les incompréhensions liées à la traduction.
+
+Courriel : weberies@yahoo.fr
+
+
+Pierre-Olivier Fineltin
+

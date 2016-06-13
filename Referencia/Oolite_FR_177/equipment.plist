@@ -1,0 +1,387 @@
+(
+	(
+		0, 2, "Carburant",
+		"EQ_FUEL",
+		"Carburant pour les moteurs supraluminiques.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+			requires_non_full_fuel = true;
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		1, 300, "Missile",
+		"EQ_MISSILE",
+		"Faulcon de Lacy HM3, missile autoguidé rapide et précis lorsqu'il est utilisé avec les scanners de ciblage standards.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+			/* NOTE: for reasons of backwards compatibility, this defaults to true for equipment whose key ends with MISSILE or MINE. */
+			requires_empty_pylon = true;
+			strict_mode_compatible = true;
+			/* NOTE: this is always zero for pylon-mounted equipment */
+			damage_probability = 0;
+		}
+	),
+	(
+		1, 4000, "Soute supplémentaire",
+		"EQ_CARGO_BAY",
+		"Extension de coque optionnelle qui augmente de la capacité de stockage.",
+		{
+			condition_script = "oolite-conditions.js";
+		  damage_probability = 0;
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		2, 6000, "Système E.C.M.",
+		"EQ_ECM",
+		"Disjoncteur de forte puissance faisant exploser à distance les missiles en approche.",
+		{
+			condition_script = "oolite-conditions.js";
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		5, 5250, "Grapilleur",
+		"EQ_FUEL_SCOOPS",
+		"Large entrée de soute jointe à un dispositif magnétique qui capture, durant le vol, les minerais minés, les gaz de carburation des couronnes solaires et toutes les sortes de débris spatiaux.",
+		{
+			condition_script = "oolite-conditions.js";
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		6, 10000, "Capsule de sauvetage",
+		"EQ_ESCAPE_POD",
+		"Une simple capsule d'urgence comprenant du matériel de survie. L'achat inclut également une assurance compréhensive pour votre vaisseau et votre équipement.",
+		{
+			condition_script = "oolite-conditions.js";
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		7, 9000, "Bombe à énergie",
+		"EQ_ENERGY_BOMB",
+		"Arme à usage unique, elle détruit tous les petits vaisseaux à portée de radar.",
+		{
+			condition_script = "oolite-conditions.js";
+			strict_mode_only = true;
+		}
+	),
+	(
+		8, 15000, "Recharge d'énergie",
+		"EQ_ENERGY_UNIT",
+		"Une recharge d'énergie à l'efficacité prouvée.",
+		{
+			condition_script = "oolite-conditions.js";
+			incompatible_with_equipment = "EQ_NAVAL_ENERGY_UNIT";
+			strict_mode_compatible = true;
+		}
+	),
+	/* condition script blocks this one from appearing normally */
+	(
+		13, 500000, "Recharge d'énergie de la marine",
+		"EQ_NAVAL_ENERGY_UNIT",
+		"Une recharge d'énergie utilisée à bord des vaisseaux de la Marine Spatiale.",
+		{
+			condition_script = "oolite-conditions.js";
+			strict_mode_compatible =true;
+		}
+		/* Special case: this eq MUST STAY COMPATIBLE with EQ_ENERGY_UNIT - It's all handled properly in code.
+		Full details at http://developer.berlios.de/bugs/?func=detailbug&bug_id=13507&group_id=3577
+		Original fix made in rev 1544 and broken in rev 1686. Fixed once again in rev 2599. Kaks 20090925 */
+	),
+	(
+		9, 15000, "Pilote d'appontage automatique",
+		"EQ_DOCK_COMP",
+		"Un simple pilote automatique lié à un système de communications interagissant localement avec les stations orbitales.",
+		{
+			condition_script = "oolite-conditions.js";
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		10, 50000, "Propulseur intergalactique",
+		"EQ_GAL_DRIVE",
+		"Une surcharge de carburant à usage unique pour les moteurs supraluminiques permettant le voyage intergalactique.",
+		{
+			condition_script = "oolite-conditions.js";
+			available_to_all = true;
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		3, 4000, "Laser à impulsions",
+		"EQ_WEAPON_PULSE_LASER",
+		"Laser fonctionnant avec des impulsions de haute puissance, une configuration de base pour la défense.",
+		{
+			condition_script = "oolite-conditions.js";
+			available_to_all = true;
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		4, 10000, "Laser à rayonnement",
+		"EQ_WEAPON_BEAM_LASER",
+		"Laser à cycle rapide délivrant plus d'énergie en un moindre temps pour des résultats plus efficaces.",
+		{
+			condition_script = "oolite-conditions.js";
+			available_to_all = true;
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		10, 8000, "Laser de minage",
+		"EQ_WEAPON_MINING_LASER",
+		"Forte puissance et rechargement lent, idéal pour l'extraction de minerais dans les grands astéroïdes.",
+		{
+		condition_script = "oolite-conditions.js";
+			available_to_all = true;
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		10, 60000, "Laser militaire",
+		"EQ_WEAPON_MILITARY_LASER",
+		"Laser à rayonnement à la puissance augmentée, développé pour la Marine Spatiale.",
+		{
+			condition_script = "oolite-conditions.js";
+			available_to_all = true;
+			strict_mode_compatible = true;
+		}
+	),
+	/* condition script blocks this one from appearing normally */
+	(
+		15, 500000, "Dispositif de furtivité",
+		"EQ_CLOAKING_DEVICE",
+		"Dispositif de furtivité, prototype expérimental de la Marine spatiale.",
+		{
+			condition_script = "oolite-conditions.js";
+			portable_between_ships = true;
+			available_to_all = true;
+			strict_mode_compatible = true;
+		}
+	),
+	(	/* Thargoid equipment, incompatible with non-thargoid ships. Not buyable because of its TL. */
+		100, 1000, "Thargon",
+		"thargon",
+		"Drone de conception non humaine.",
+		{
+			strict_mode_compatible = true;
+			available_to_player = false;
+		}
+	),
+	(	/* Thargoid equipment, standardised name. Incompatible with non-thargoid ships. Not buyable because of its TL. */
+		100, 1000, "Thargon",
+		"EQ_THARGON",
+		"Drone de conception non humaine.",
+		{
+			strict_mode_compatible = true;
+			available_to_player = false;
+		}
+	),
+	(
+		/* Cute, fluffy pet. Not buyable through usual channels, you'll have to find a specialist merchant. */
+		100, 300, "Groblem",
+		"EQ_TRUMBLE",
+		"Un animal de compagnie mignon et inconnu.",
+		{
+			strict_mode_compatible = true;
+			visible = false;	// Hidden on status screen.
+			damage_probability = 0;
+		}
+	),
+	( /* Passenger Compartment, like missiles this can be bought multiple times */
+		5, 8250, "Cabine de passager - contre 5T de cargaison",
+		"EQ_PASSENGER_BERTH",
+		"Fournit tout le nécessaire à la vie, au confort et à la distraction pour un seul passager.",
+		{
+			available_to_all = true;
+			available_to_NPCs = false;
+			condition_script = "oolite-conditions.js";
+			requires_cargo_space = 5;
+			damage_probability = 0;
+		}
+	),
+	( /* Passenger Compartment Removal */
+		1, 1000, "Supprimer une cabine de passager - donne la place de 5T de cargaison",
+		"EQ_PASSENGER_BERTH_REMOVAL",
+		"Supprimer une cabine de passager.",
+		{
+			available_to_all = true;
+			available_to_NPCs = false;
+			condition_script = "oolite-conditions.js";
+			requires_free_passenger_berth = true;
+		}
+	),
+	( /* Missile Removal */
+		1, 200, "Démonter et vendre les armes d'aile.",
+		"EQ_MISSILE_REMOVAL",
+		"Démonte, désarme et revend au prix du marché tous les missiles ou les mines actuellement montés sur votre vaisseau.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+			requires_mounted_pylon = true;
+		}
+	),
+	( /* ecm hardened missile */
+		9, 3500, "Missile Anti-ECM",
+		"EQ_HARDENED_MISSILE",
+		"Faulcon de Lacy HMX5 missile autoguidé, renforcé contre le système ECM.",
+		{
+			condition_script = "oolite-conditions.js";
+			available_to_all = true;
+			/* NOTE: for reasons of backwards compatibility, this defaults to true for equipment whose key ends with MISSILE or MINE. */
+			requires_empty_pylon = true;
+			/* NOTE: this is always zero for pylon-mounted equipment */
+			damage_probability = 0;
+		}
+	),
+	(
+		10, 6000, "Injecteur de carburant",
+		"EQ_FUEL_INJECTION",
+		"Un convertisseur ajouté à votre système de motorisation. Il injecte du carburant supraluminique dans les moteurs subluminiques. Jusqu'épuisement du carburant, il augmente considérablement votre vitesse.",
+		{
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		11, 4500, "Amélioration du radar de tir",
+		"EQ_SCANNER_SHOW_MISSILE_TARGET",
+		"Ajoute un indicateur de direction, la distance et le statut légal de la cible sélectionnée",
+		{
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		5, 3250, "Multi-Targeting System",
+		"EQ_MULTI_TARGET",
+		"Per-missile target memory, maintains multiple target locks.",
+		{
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		7, 6500, "Compas d'astro-navigation perfectionné",
+		"EQ_ADVANCED_COMPASS",
+		"Le GW-99, le plus perfectionné des compas d'astro-navigation de chez Tyley-Feynman, bénéficie de nouveaux modes de direction, sélectionnables par l'utilisateur.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		6, 22500, "amélioration de l'outil de navigation",
+		"EQ_ADVANCED_NAVIGATIONAL_ARRAY",
+	"Mise à jour du logiciel de la console de navigation, améliorant les fonctionnalités des cartes galactiques pour une préparation de voyage plus efficace.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+	8, 12500, "Extension de la mémoire de ciblage",
+		"EQ_TARGET_MEMORY",
+		"Une matrice de mémoire de ciblage à seize coeurs, permettant la sélection entre plusieurs cibles préalablement verrouillées.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	/* NPC equipment, incompatible with player ship. Not buyable because of its TL. */
+	(
+		100, 150000, "Laser Thargoïde",
+		"EQ_WEAPON_THARGOID_LASER",
+		"Une arme provenant d'un Thargoïde capturé, à pointage automatique.",
+		{
+			available_to_player = false;
+		}
+	),
+	(
+		6, 25000, "Mine en cascade de Quirium",
+		"EQ_QC_MINE",
+		"La mine en cascade de Quirium de chez Tyley-Feynman. Montée à la place d'un missile, elle se déploie à l'arrière de votre vaisseau. Arme de destruction massive, elle déclenche des réactions en chaîne dans les moteurs supraluminiques de tous les vaisseaux pris dans sa zone d'explosion.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+			/* NOTE: for reasons of backwards compatibility, this defaults to true for equipment whose key ends with MISSILE or MINE. */
+			requires_empty_pylon = true;
+			/* NOTE: this is always zero for pylon-mounted equipment */
+			damage_probability = 0;
+		}
+	),
+	(
+		10, 147500, "Amplificateur de bouclier",
+		"EQ_SHIELD_BOOSTER",
+		"Une technologie d'amplification des boucliers qui accroît spectaculairement la capacité protectionnelle des boucliers ordinaires.",
+		{
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		13, 475500, "Amplificateur militaire des boucliers",
+		"EQ_NAVAL_SHIELD_BOOSTER",
+		"Cette technologie militaire, utilisée conjointement avec les boucliers ordinaires et l'amplificateur de bouclier, augmente encore les capacités protectionnelles.",
+		{
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	/* next item was a test item */
+	(
+		2, 2000, "Double canon à plasma",
+		"EQ_WEAPON_TWIN_PLASMA_CANNON",
+		"Simple canon délivrant des rafales d'obus plasmatiques à vitesse subluminique."
+	),
+	/* new items */
+	(
+		4, 15000, "Bouclier anti-chaleur externe",
+		"EQ_HEAT_SHIELD",
+		"Une couverture et des tuiles en fibres de céramique, aucune valeur d'armure mais évite les insolations près des soleils.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		9, 23950, "Détecteur de tunnels supraluminiques",
+		"EQ_WORMHOLE_SCANNER",
+		"De chez Mössbauer-Krantz Works ce détecteur s'intègre à votre système de ciblage. Il analyse l'énergie résiduelle des tunnels supraluminiques et, en combinaison avec le logiciel de la carte galactique, calcule le plus probable des systèmes d'arrivée.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	/* renovation price is a dummy value - calculated to be 1% of the value of a fully-maintained ship of that type and equipment */
+	(
+		6, 1000, "Révision et entretien",
+		"EQ_RENOVATION",
+		"Couvre le nettoyage et le remplacement des sections de coques endommagées, la dé-ionisation des boucliers et du grapilleur, le contrôle et le réglage des équipements ainsi qu'un dépoussiérage minutieux et les retouches de peinture.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	/* next item has a TL too high to be available */
+	(
+		99, 1500000, "Contremesures militaires anti-scanners (MASC'M)",
+		"EQ_MILITARY_JAMMER",
+		"Développé à partir des prototypes furtifs expérimentaux, ce dispositif de brouillage empêche les vaisseaux ennemis d'analyser votre engin."
+	),
+	/* next item has a TL too high to be available */
+	(
+		99, 250000, "Filtre d'analyse militaire",
+		"EQ_MILITARY_SCANNER_FILTER",
+		"Filtre le signal de brouillage des dispositifs MASC'M."
+	),
+	/* NPC equipment, incompatible with player ship. Not buyable because of its TL. */
+	(
+		100, 147500, "Renforceur de bouclier",
+		"EQ_SHIELD_ENHANCER",
+		"Technologie de renforcement des bouclier qui augmente spectaculairement les capacités protectionnelles des boucliers.",
+		{
+			available_to_player = false;
+		}
+	)
+)

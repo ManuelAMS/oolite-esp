@@ -1,0 +1,1114 @@
+{
+	// *** Basic lists ***
+	condition =
+	(
+		"Angedockt",
+		"Grün",
+		"Gelb",
+		"Rot"
+	);
+	economy =
+	(
+		"Schwerindustrie",
+		"Leichtindustrie",
+		"Schwache Industrie",
+		"Einfache Industrie",
+		"Einfache Landwirtschaft",
+		"Intensive Landwirtschaft",
+		"Mittlere Landwirtschaft",
+		"Schwache Landwirtschaft"
+	);
+	government =
+	(
+		"Anarchie",
+		"Feudalsystem",
+		"Multi-Government",
+		"Diktatur",
+		"Kommunistisch",
+		"Staatenbund",
+		"Demokratie",
+		"Marktwirtschaft"
+	);
+	legal_status =
+	(
+		"Sauber",
+		"Kriminell",
+		"Gesucht"
+	);
+	rating =
+	(
+		"Harmlos",
+		"Meistens harmlos",
+		"Ungefährlich",
+		"Durchschnittlich",
+		"Überdurchschnittlich",
+		"Ernstzunehmen",
+		"Gefährlich",
+		"☆ Tödlich ☆",
+		"★★★ E L I T E ★★★"
+	);
+	weapon_name =
+	(
+		"keine",
+		"Zwilings Plasma Kanone",
+		"Puls Laser",
+		"Strahllaser",
+		"Bergbaulaser",
+		"Militärlaser"
+	);
+	
+	// *** Inhabitant description generator ***
+	inhabitants =
+	(
+		(
+			"Grosse",
+			"Wilde",
+			"Kleine"
+		),
+		(
+			"Grüne",
+			"Rote",
+			"Gelbe",
+			"Blaue",
+			"Schwarze",
+			"Harmlose"
+		),
+		(
+			"schleimige",
+			"glotzende",
+			"gehörnte",
+			"knochige",
+			"fette",
+			"pelzige"
+		),
+		(
+			"Nagetier",
+			"Frosch",
+			"Eidechse",
+			"Krebs",
+			"Vogel",
+			"Mensch",
+			"Katze",
+			"Insekt"
+		),
+		(
+			"Nagetiere",
+			"Frösche",
+			"Eidechsen",
+			"Krebse",
+			"Vögel",
+			"Menschen",
+			"Katzen",
+			"Insekten"
+		)
+	);
+	
+	// *** Planet description generator ***
+	system_description =
+	(
+		( //#0 (famous_adj)
+			"sagenhafte",
+			"bemerktenswerte",
+			"bekannte",
+			"sehenswerte",
+			"beachtenswerte"
+		),
+		( //#1 (degree_adj)
+			"sehr",
+			"wenig",
+			"kaum",
+			"aussergewöhnlich",
+			""
+		),
+		( //#2
+			"uralte",
+			"[20]",
+			"grossartige",
+			"enorme",
+			"rosa"
+		),
+		( //#3
+			"[29] [28] Plantagen",
+			"Berge",
+			"[27]",
+			"[19] Wälder",
+			"Ozeane"
+		),
+		( //#4
+			"Schüchternheit",
+			"Albernheit",
+			"Paarungsverhalten",
+			"unbeliebt für [5]",
+			"beliebt für [5]"
+		),
+		( //#5
+			"Mixer",
+			"Touristen",
+			"Poesie",
+			"Discos",
+			"[13]"
+		),
+		( //#6
+			"sprechenden Bäumen",
+			"Krabben",
+			"Fledermäusen",
+			"Krebsen",
+			"%Ren"
+		),
+		( //#7
+			"leidet unter",
+			"wird geplagt von",
+			"wird verwüstet von",
+			"ist verflucht mit",
+			"wird gegeisselt von"
+		),
+		( //#8
+			"[21] Bürgerkriegen",
+			"[26], [23] [24]",
+			"[26] Krankheiten",
+			"[21] Erdbeben",
+			"[21] Sonnenaktivitäten"
+		),
+		( //#9 (main_dispatch)
+			", [2] [3]",	//OK
+			" Bewohner, die [23] [24]",
+			" Einwohner, die [25] [24]",
+			" [32]",
+			" und [12] [13]"
+		),
+		( //#10
+			"saftige",
+			"feurige",
+			"wässrige",
+			"siedende",
+			"scharfe"
+		),
+		( //#11
+			"%R",
+			"%I [24]",
+			"%I %R",
+			"%I [24]",
+			"[26] %R"
+		),
+		( //#12
+			"absurde",
+			"exotische",
+			"bizarre",
+			"ungewöhnliche",
+			"aufregende"
+		),
+		( //#13
+			"Küchen",
+			"Nachtleben",
+			"Kasinos",
+			"Fernsehserien",
+			"[32]"
+		),
+		( //#14
+			"%H",
+			"Der Planet %H",
+			"Die Welt %H",
+			"Dieser Planet",
+			"Diese Welt"
+		),
+		( //#15
+			"unauffälliger",
+			"langweiliger",
+			"ausdrucksloser",
+			"nutzloser",
+			"ekliger"
+		),
+		( //#16
+			"Stern",
+			"Ort",
+			"Platz",
+			"Zwerg",
+			"Klumpen Dreck"
+		),
+		( //#17
+			"Wespen",
+			"Motten",
+			"Engerlingen",
+			"Ameisen",
+			"%Ren"
+		),
+		( //#18
+			"Poeten",
+			"Künstlern",
+			"Yaks",
+			"Schnecken",
+			"Nacktschnecken"
+		),
+		( //#19
+			"tropische",
+			"dichte",
+			"regenreiche",
+			"undurchdringliche",
+			"üppige"
+		),
+		( //#20
+			"komischen",
+			"sonderbaren",
+			"ungewöhnlichen",
+			"befremdenden",
+			"eigenartigen"
+		),
+		( //#21
+			"häufigen",
+			"gelegentlichen",
+			"unvorhersehbaren",
+			"fürchterlichen",
+			"tödlichen"
+		),
+		( //#22 (planet_attr_root)
+			"besitzt [1] [0][9]",
+			"hat [1] [0][9]",
+			"[7] [8]",
+			"hat [1] [0][9] aber [7] [8]",
+			"ist ein [15] [16]"
+		),
+		( //#23
+			"giftigen",
+			"gescheckten",
+			"essbaren",
+			"gestreiften",
+			"gepunkteten"
+		),
+		( //#24
+			"[30]",
+			"[31]",
+			"[6]",
+			"[18]",
+			"[17]"
+		),
+		( //#25
+			"uralten",
+			"aussergewöhnlichen",
+			"ausgefallenen",
+			"verwurzelten",
+			"[20]"
+		),
+		( //#26
+			"mörderischen",
+			"furchtbaren",
+			"bösen",
+			"tödlichen",
+			"teuflischen"
+		),
+		( //#27
+			"Wüsten",
+			"Staubwolken",
+			"Eisberge",
+			"Felsformationen",
+			"Vulkane"
+		),
+		( //#28
+			"Pflanzen",
+			"Tulpen",
+			"Bananen",
+			"Getreide",
+			"Gras"
+		),
+		( //#29
+			"%R",
+			"%I %R",
+			"[26] %I",
+			"",
+			"%I %R"
+		),
+		( //#30
+			"Spitzmäusen",
+			"Biestern",
+			"Bisons",
+			"Schlangen",
+			"Wölfen"
+		),
+		( //#31
+			"Leoparden",
+			"Katzen",
+			"Affen",
+			"Ziegen",
+			"Fischen"
+		),
+		( //#32
+			"und [10] [11]",
+			"[33] aus [30]",
+			"und [12] [33] aus [31]",
+			"[34]-[35]",
+			"und [10] [11]"
+		),
+		( //#33
+			"Fleisch",
+			"Schitzel",
+			"Steak",
+			"Burger",
+			"Suppe"
+		),
+		( //#34
+			"Eis",
+			"Schlamm",
+			"Null-G",
+			"Vakuum",
+			"%I Ultra"
+		),
+		( //#35
+			"Hockey Stadien",
+			"Kricket Plätze",
+			"Karate Arenen",
+			"Polo Spielfelder",
+			"Tennis Plätze"
+		),
+	);
+	
+	// *** Planet names and other random names ***
+	// this string must always be the same length (98 characters). Digrams (pairs of letters) are selected from it to build names.
+	digrams = "ABOUSEITILETSTONLONUTHNOALLEXEGEZACEBISOUSESARMAINDIREA’ERATENBERALAVETIEDORQUANTEISRION";
+	// If the second character of a digram is equal to this single-character string, it is dropped when generating planet names (but kept for other random names).
+	digrams-apostrophe = "’";
+	// this string represents the 4 character phonemes associated with each digram.
+	phonograms = "AEb=UW==sEH=IHt=IHl=EHt=st==AAn=lOW=nUW=T===nOW=AEl=lEY=hEY=JEH=zEY=sEH=bIY=sOW=UHs=EHz=AEr=mAE=IHn=dIY=rEY=EH==UXr=AEt=EHn=bEH=rAX=lAX=vEH=tIY=EHd=AAr=kw==AXn=tEY=IHz=rIY=AAn=";
+	"interstellar-space"			= "Interstellarer Raum";
+	"not-applicable"				= "N/A";
+	
+	// Currency format
+	"@-credits"						= "%@ ₢";
+	
+	// *** Misc. messages ***
+	// Messages used when awarding bounties
+	"bounty-@"						= "Kopfgeld: %@";
+	"total-@-credits"				= "Total: %@";
+	"right-on-commander"			= "Also los, Kommandant!";
+	
+	// Assorted messages used by the onboard computer
+	"autopilot-on"					= ( "Autopilot aktiviert." );
+	"autopilot-off"					= ( "Autopilot deaktiviert." );
+	"autopilot-out-of-range"		= ( "Station ausser Reichweite." );
+	"autopilot-cannot-dock-with-target" = ( "Ziel unterstützt keinen Autopilot." );
+	"autopilot-denied"				= ( "Autopilot wurde abgelehnt." );
+	"witch-to-@-in-f-seconds"		= ( "Hyperraumsprung nach %@ in %.0f s." );
+	"witch-blocked-by-@"			= ( "Hyperraumsprung abgebrochen (zu nahe an %@.)" );
+	"witch-user-abort"				= ( "Hyperraumsprung abgebrochen." );
+	"witch-no-target"				= ( "Kein Ziel eingegeben." );
+	"witch-no-fuel"					= ( "Zuwenig Treibstoff für Hyperraumsprung." );
+	"witch-too-far"					= ( "Ziel zu weit weg für Hyperraumsprung." );
+	"witch-engine-malfunction"		= ( "Fehlfunktion im Hyperraumantrieb!" );
+	"witch-galactic-in-f-seconds"	= ( "Intergalaktischer Sprung in %.0f s." );
+	"game-paused"					= ( "Spiel pausiert." );
+	"game-paused-options"			= ( "Drücken Sie F2 für Optionen, P zum weitermachen." );
+	"game-saved"					= ( "Spiel gespeichert." );
+	"mouse-on"						= ( "Maussteuerung an." );
+	"mouse-off"						= ( "Maussteuerung aus." );
+	"target-lost"					= ( "Ziel verloren." );
+	"unknown-target"				= ( "Unbekanntes Ziel" );
+	"ecm-on"						= ( "Störsender aktiviert." );
+	"ecm-out-of-juice"				= ( "Störsender deaktiviert (keine Energie mehr)." );
+	"jump-mass-locked"				= ( "Objekt zu nahe." );
+	"fuel-inject-on"				= ( "Hyperraumtreibstoff wird eingespritzt." );
+	"fuel-out"						= ( "Hyperraumtreibstoff aufgebraucht." );
+	"ident-on"						= ( "Identifikationssystem aktiviert." );
+	"ident-off"						= ( "Identifikationssystem deaktiviert." );
+	"missile-locked-onto-@"			= ( "Rakete zielt auf %@." );
+	"ident-locked-onto-@"			= ( "Identifikationssystem eingerastet auf %@." );
+	"missile-armed"					= ( "Rakete scharf." );
+	"mine-armed"					= ( "Mine scharf." );
+	"missile-safe"					= ( "Rakete gesichert." );
+	"incoming-missile"				= ( "Anfliegende Rakete!" );
+	"energy-low"					= ( "Energie niedrig." );
+	"energy-bomb-activated"			= ( "Energiebombe gezündet." );
+	"weapon-overheat"				= ( "Waffensystem überhitzt!" );
+	"weapon-out-of-juice"			= ( "Waffensystem deaktiviert (keine Energie mehr)." );
+	"escape-sequence"				= ( "Rettungskapsel aktiv." );
+	"@-ejected"						= ( "%@ abgeworfen." );
+	"@-ready-to-eject"				= ( "%@ bereit zum Abwurf." );
+	"ready-to-eject-@"				= ( "Bereit zum Abwurf von %@." );
+	"@-scooped"						= ( "%@ aufgenommen." );
+	"scoop-captured-@"				= ( "%@ eingefangen." );
+	"scoop-rescued-@"				= ( "%@ gerettet." );
+	"scoop-got-slave"				= ( "Sie haben einen Sklaven gefangen." );
+	"fuel-scoop-active"				= ( "Ladesauger aktiv." );
+	"hold-locked"					= ( "Abwurf der Landung nicht möglich (zu schnell)." );
+	"hold-full"						= ( "Laderaum voll." );
+	// cloaking device ..
+	"cloak-on"						= ( "Tarnvorrichtung aktiviert." );
+	"cloak-off"						= ( "Tarnvorrichtung deaktiviert." );
+	"cloak-low-juice"				= ( "Zu wenig Energie für Tarnvorrichtung!" );
+	
+	// Assorted messages sent out by ships etc..
+	/*	%H - homeworld
+			%I - homeworld+ian
+			%R - random digrams
+			%@ - text to be inserted at this point
+			%d, %f, %x etc. - printf type variables to be inserted
+			[$text] = $text is an entry here that will be expanded
+			[$number] = a random line from item $number of system_description us is used.
+	*/
+	"beg-for-mercy" =
+	(
+		"Nein!",
+		"Hilfe! Hört uns jemand?",
+		"Unsere Systeme versagen, bitte lassen Sie uns fliehen!",
+		"Lassen Sie uns alleine!",
+		"Nicht schiessen, bitte!",
+		"Bitte aufhören ! Zeigen Sie Gnade!",
+		"Bitte töten Sie uns nicht! Ich flehe Sie an!",
+		"S.O.S. … S.O.S. … S.O.S. …"
+	);
+	"describe-pirate" =
+	(
+		"räuberischer",
+		"piraten",
+		"feindliches Schiff",
+		"plündernde",
+		"kriminelle"
+	);
+	"describe-Pirate" =	// Capitalized version of describe-pirate
+	(
+		"Räuber",
+		"Piraten",
+		"Feindliche Schiffe",
+		"Plünderer",
+		"Kriminelle"
+	);
+	"distress-call" =
+	(
+		"Wir werden [7] von [describe-pirate]! Bitte helft uns!",
+		"Unser Schiff wird angegriffen, bitte helft uns!",
+		"[describe-Pirate] greifen uns an. Helft uns!!",
+		"Hilfe! Hört uns jemand?",
+		"Mayday! Mayday! Mayday! Wir werden angegriffen!",
+		"Hilfe! Die schiessen auf uns!",
+		"Mayday! Erbitte Hilfe! Mayday! Erbitte Hilfe!",
+		"S.O.S. … S.O.S. … S.O.S. …"
+	);
+	"buoy-distress-call" =
+	(
+		"Sie haben eine Navigationsboje beschädigt. Das ist verboten!",
+		"%H Navigationsboje meldet Vandalismus.",
+		"%H Navigationsboje an angreifendes Schiff. Bitte hören Sie auf.",
+		"Beschädigen von Navigationsbojen ist verboten. Die Polizei ist schon unterwegs."
+	);
+	"thanks-for-assist" =
+	(
+		"Vielen Dank für die Hilfe.",
+		"Danke!",
+		"%R segne Sie!",
+		"Vielen Dank! Das hat geholfen!"
+	);
+	"police-thanks-for-assist" =
+	(
+		"Vielen Dank für Ihre Kooperation.",
+		"Die Polizei von %H dankt Ihnen für Ihre Kooperation."
+	);
+	"thargoid_curses" =
+	(
+		"Beschütze dein [33], menschliche [17]!",
+		"Friss [24], ihr [17]!",
+		"Wir nehmen euer [20] [27] als [33]!",
+		"%R! %R! %R!"
+	);
+	"police-warning" =
+	(
+		"Flüchtiges Raumschiff, hier spricht die Polizei von %H. Sie wurden erkannt und werden verhaftet wenn Sie hier landen.",
+		"[describe-Pirate], hier spricht die Polizei von %H. Sie müssen das Bussgeld bezahlen, wenn Sie hier landen.",
+		"Hier spricht die Polizei. Docken an %H erfordert Bezahlung des Bussgeldes.",
+		"Hier spricht die Polizei. Die %H Station wird das Bussgeld einziehen wenn Sie hier landen."
+	);
+	"police-attack-warning" =
+	(
+		"Verbrecher, Ihr Raumschiff wird zerstört nach der GalCop Richtlinie.",
+		"Antrieb langsam ausschalten und keine Tricks, [describe-pirate]!",
+		"%R! Verschwinde, oder die Polizei holt dich.",
+		"Krimineller, Sie sind hier nicht willkommen.",
+		"Verbrecher, hier spricht die Polizei von %H. Verschwinden Sie oder wir eröffnen das Feuer!",
+		"Krimineller, Sie wurden zum Tode verurteilt!",
+		"Verschwinde oder du wirst vernichtet!",
+		"Hier spricht die Polizei von %H. Haben das Schiff entdeckt und nehmen Verfolgung auf."
+	);
+	// /general docking
+	"docking-welcome" =
+	(
+		"Andocksysteme aktiviert.",
+		"Erlaubnis zum Andocken erteilt. Anflugdaten wurden Ihnen übermittelt."
+	);
+	"docking-begin-final-aproach" =
+	(
+		"Sie sind im Endanflug.",
+		"Beginne Endanflug."
+	);
+	// /general docking
+	// station
+	"station-welcome" =
+	(
+		"Willkommen in der %H Raumstation.",
+		"Andocksysteme aktiviert. Willkommen in %H.",
+		"Willkommen in %H. Bitte halten Sie das Ladungsverzeichnis bereit.",
+		"Hier spricht die %H Station. Anflugdaten wurden Ihnen übermittelt.",
+		"Sei gegrüsst Raumfahrer! Willkommen in %H.",
+		"%H heisst Sie wilkommen. Andocken in wenigen Minuten, bitte bereit halten.",
+		"Willkommen in %H. Ihr Schiff wird sofort angedockt.",
+		"Willkommen! Die %H Station Verkehrsleitstelle heisst Sie willkommen."
+	);
+	"station-begin-final-aproach" =
+	(
+		"Sie sind im Endanflug zur %H Station.",
+		"Sie sind nun im %H Raumdock.",
+		"Beginne Endanflug.",
+		"Beginne Endanflug zur %H Station."
+	);
+	"station-hold-position" =
+	(
+		"Bitte warten – Sie sind in der Warteschlange.",
+		"Sie werden gleich angedockt, bitte haben Sie etwas Geduld.",
+		"Grosses Verkehrsaufkommen, bitte warten Sie bis wir ein freies Zeitfenster für Sie haben.",
+		"Sie sind in der Warteschlange, bitte haben Sie etwas Geduld."
+	);
+	"station-acknowledges-hold-position" =
+	(
+		"Bitte haben Sie etwas Geduld – wir bereiten einen Landeplatz für Ihr Raumschiff vor.",
+		"Sie werden bald angedockt, bitte haben Sie etwas Geduld.",
+		"Wir bereiten einen Landeplatz für Ihr Raumschiff vor. Bitte warten.",
+		"Andocken wird vorbereitet. Vielen Dank für Ihre Geduld.",
+		"Anfrage für Andocken erhalten. Bitte warten Sie auf die Freigabe.",
+		"Alles wird für Ihre Landung vorbereitet. Bitte warten."
+	);
+	"station-docking-refused-to-fugitive" =
+	(
+		"Die %H Station lässt keine gesuchte Verbrecher herein!"
+	);
+	// /station
+	"fined-@-credits" =
+	(
+		"Sie erhalten eine Busse von %@.",
+		"Sie erhalten eine Busse von %@ und müssen den Müll auf dem Haupthangardeck aufsammeln.",
+		"Sie erhalten eine Busse von %@ und müssen nach den [6] den Boden reinigen.",
+		"Sie erhalten eine Busse von %@ und müssen zur “Verhaltenskorrektur”."
+	);
+	// system description after a nova
+	"nova-system-description" =
+	(
+		"Die Sonne von %I wurde zur Super Nova und zerstörte alle Planeten und alles Leben. Vorsicht vor radioaktiver Strahlung und gestörter Navigation."
+	);
+	// trumbles
+	"trumbles-eat-@"				= ( "Trumbles haben eine Frachttransporter von %@ gefressen." );
+	// internal damage
+	"@-damaged"						= ( "%@ beschädigt." );
+	"@-destroyed"					= ( "%@ zerstört." );
+	
+	// icons for the hud
+	"EQ_HARDENED_MISSILE" =
+	(
+		 0,  3,
+		 2,  1,
+		 2, -3,
+		 0, -1,
+		-2, -3,
+		-2,  1
+	);
+	// human surname namegen
+	"nom" =
+	(
+		"%R",
+		"[nom1]"
+	);
+	"nom1" =
+	(
+		"ben [nom11]",
+		"Mc[nom11]",
+		"O’[nom11]",
+		"Ath[enom2]",
+		"Br[nomvoweliy]an",
+		"Bran[nom2]",
+		"C[nomvowelar][nom2]",
+		"D[nomvowelar][nom2]",
+		"Dav[nomvoweliy][nom2]",
+		"Denn[nomvoweliy][nom2]",
+		"Eccl[enom2]",
+		"Fa[nomvoweliy]r[nom2]",
+		"Folk[nom2]",
+		"Garr[enom2]",
+		"Good[nom2]",
+		"Hector",
+		"Inn[enom2]",
+		"Jam[enom2]",
+		"Jon[nom2]",
+		"Kir[nom2]",
+		"L[nomvoweliy]ttle[nom2]",
+		"L[nomvowelar][nom2]",
+		"Na[nomvoweliy]l[nom2]",
+		"Neil[nom2]",
+		"Peter[nom2]",
+		"Orbit[nom2]",
+		"Roger[nom2]",
+		"Sam[nom2]",
+		"Star[nom2]",
+		"Th[nomvowelur]r[nom2]",
+		"Wilkin[nom2]",
+		"William[nom2]",
+		"%H[nom2]",
+		"%R[nom2]",
+		"%R-[nom1]",
+		"[nom1]-[nom11]"
+	);
+	"nom11" =
+	(
+		"Ath[enom2]",
+		"Br[nomvoweliy]an",
+		"Bran[nom2]",
+		"C[nomvowelar][nom2]",
+		"D[nomvowelar][nom2]",
+		"Dav[nomvoweliy][nom2]",
+		"Denn[nomvoweliy][nom2]",
+		"Folk[nom2]",
+		"Garri[nom2]",
+		"Good[nom2]",
+		"Hector",
+		"Inn[enom2]",
+		"Jam[enom2]",
+		"Jon[nom2]",
+		"Kir[nom2]",
+		"L[nomvoweliy]ttle[nom2]",
+		"L[nomvowelar][nom2]",
+		"Na[nomvoweliy]l[nom2]",
+		"Neil[nom2]",
+		"Peter[nom2]",
+		"Roger[nom2]",
+		"Sam[nom2]",
+		"Star[nom2]",
+		"Th[nomvowelur]r[nom2]",
+		"Wilkin[nom2]",
+		"William[nom2]",
+		"%H[nom2]",
+		"%R[nom2]"
+	);
+	"nom2" =
+	(
+		"",
+		"b[nomvowelur]rn",
+		"f[nomvowelur]r",
+		"st[nomvowelur]n",
+		"sen",
+		"son",
+		"son",
+		"sdott[nomvoweliy]r",
+		"s",
+		"s",
+		"sby",
+		"er",
+		"f[nomvoweliy]re",
+		"l[nomvoweliy]ng"
+	);
+	"enom2" =
+	(
+		"e",
+		"[nomvowelie]b[nomvowelur]rn",
+		"[nomvowelie]f[nomvowelur]r",
+		"[nomvowelie]st[nomvowelur]n",
+		"[nomvowelie]sen",
+		"[nomvowelie]son",
+		"eson",
+		"[nomvowelie]sdott[nomvoweliy]r",
+		"[nomvowelie]s",
+		"es",
+		"esby",
+		"[nomvowelie]f[nomvoweliy]re",
+		"l[nomvoweliy]ng"
+	);
+	"nomvowelie" =
+	(
+		"i",
+		"e",
+		"e",
+		"ie"
+	);
+	"nomvowelar" =
+	(
+		"ar",
+		"aw",
+		"arre",
+		"our"
+	);
+	"nomvowelur" =
+	(
+		"e",
+		"o",
+		"u",
+		"ou",
+		"ai"
+	);
+	"nomvoweliy" =
+	(
+		"i",
+		"y"
+	);
+	
+	// The four main views
+	"forward-view-string"			= "Aussicht voraus";
+	"aft-view-string"				= "Blick achtern";
+	"port-view-string"				= "Blick Backbord";
+	"starboard-view-string"			= "Blick Steuerbord";
+	
+	// GUI strings common to more than one screens
+	"gui-back"						= " Zurück ";
+	"gui-more"						= " Weiter ";
+	"press-space-commander"			= "Leertaste drücken Kommandant";
+	
+	// Demo2 screen
+	"unknown-ship-@"				= "Unbekanntes Schiff '%@'.";
+
+	// Intro1 screen
+	"game-copyright"				= "von Giles Williams und Mitwirkende © 2003–2008";
+	"theme-music-credit"			= "Oolite Themen Musik von NoSleep © 2004";
+	"load-previous-commander"		= "Vorangehender Spielstand laden (J/N)?";
+	"load-previous-commander-yes"		= "j"; // Defines the key that corresponds to the yes answer to load-previous-commander.
+	"load-previous-commander-no"		= "n"; // Defines the key that corresponds to the no answer to load-previous-commander.
+	
+	// Status screen
+	"status-commander-@"			= "Kommandant %@";
+	"status-present-system"			= "Gegenwärtiges System:";
+	"status-hyperspace-system"		= "Hyperspace System:";
+	"status-condition"				= "Zustand:";
+	"status-fuel"					= "Treibstoff:";
+	"status-light-years-desc"		= "Lichtjahre";
+	"status-cash"					= "Geld:";
+	"status-legal-status"			= "Rechtsstatus:";
+	"status-rating"					= "Bewertung:";
+	"status-equipment"				= "Ausrüstung:";
+	"equipment-fwd-weapon-@"		= "Voraus %@";
+	"equipment-aft-weapon-@"		= "Achtern %@";
+	"equipment-stb-weapon-@"		= "Steuerbord %@";
+	"equipment-port-weapon-@"		= "Backbord %@";
+	"equipment-single-pass-berth-@"	= "1 Passagierkabine";
+	"equipment-multiple-pass-berth-@" = "%d Passagierkabinen";
+	"equipment-@-not-available"		= "%@ (N/A)";
+	"manifest-cargo-quantity-format" = "%d %@ × %@";	// $count $units × $commodityName
+	
+	// Short Range Chart Screen
+	"short-range-chart-title"		= "Kurzstrecken Karte";
+	"short-range-chart-distance-f"	= "Distanz: %.1f Lichtjahre";
+	"short-range-chart-est-travel-time-f" = "Geschätzte Reisezeit: %.1f Stunden";
+	
+	// Long Range Chart Screen
+	"long-range-chart-title-d"		= "Galaktische Karte %d";
+	"long-range-chart-distance-f"	= "Distanz: %.1f Lichtjahre";
+	"long-range-chart-est-travel-time-f" = "Geschätzte Reisezeit: %.1f Stunden";
+	"long-range-chart-find-planet-@" = "Finde Planet: %@";
+	
+	// Market screen
+	"@-commodity-market"			= "%@ Marktplatz";
+	"commodity-column-title"		= "Ware:";
+	"price-column-title"			= "Preis:";
+	"for-sale-column-title"			= "Angebot:";
+	"in-hold-column-title"			= "Geladen:";
+	"cash-@-load-d-of-d"			= "Geld: %@. Fracht %d von %d t.";
+	"cargo-tons-symbol"				= "t";
+	"cargo-grams-symbol"			= "g";
+	"cargo-kilograms-symbol"		= "kg";
+	"commodity-quantity-none"		= "—";
+	
+	// System data screen
+	"sysdata-planet-name-@"			= "Daten über %@";
+	"sysdata-eco"					= "Wirtschaft:";
+	"sysdata-govt"					= "Regierung:";
+	"sysdata-tl"					= "Tech Level:";
+	"sysdata-pop"					= "Bevölkerung:";
+	"sysdata-billion-word"			= "Milliarden";
+	"sysdata-prod"					= "Bruttoproduktion:";
+	"sysdata-prod-worth"			= " %5d M ₢";
+	"sysdata-radius"				= "Durchschnittsradius:";
+	"system-description-string"		= "[14] [22].";
+	
+	// Options (sometimes referred to as loadsave) screen
+	"options-quick-save"			= " Schnell-Speicherung ";
+	"options-save-commander"		= " Spielstand speichern ";
+	"options-load-commander"		= " Spielstand laden ";
+	"options-begin-new-game"		= " Neues Spiel ";
+	"options-game-options"			= " Spiel Optionen… ";
+	"options-exit-game"				= " Spiel verlassen ";
+	"options-reset-to-unrestricted-play" = " Neustart im erweiterten Spielmodus ";
+	"options-reset-to-strict-play"	= " Neustart im originalen Spielmodus ";
+	
+	// Gameoptions screen
+	"gameoptions-autosave-yes"				= " Automatisches speichern: An ";
+	"gameoptions-autosave-no"				= " Automatisches speichern: Aus ";
+	"gameoptions-sound-volume"				= " Lautstärke: ";
+	"gameoptions-sound-volume-mute"			= " Lautstärke: Still ";
+	"gameoptions-volume-external-only"		= " Lautstärke: Externe Kontrolle ";
+	"gameoptions-show-growl-messages-@"		= " Growl Nachrichten anzeigen: %@ ";
+	"gameoptions-spoken-messages-yes"		= " Gesprochene Nachrichten: An ";
+	"gameoptions-spoken-messages-no"		= " Gesprochene Nachrichten: Aus ";
+	"gameoptions-music-mode-@"				= " Musik: %@ ";
+	"gameoptions-fullscreen-mode-d-by-d-at-g-hz" = " Vollbild Modus: %d × %d bei %.3g Hz ";
+	"gameoptions-fullscreen-mode-d-by-d"	= " Vollbild Modus: %d × %d ";
+	"gameoptions-play-in-window"			= " Spielen im Fenster ";
+	"gameoptions-play-in-fullscreen"		= " Spielen im Vollbild ";
+	"gameoptions-joystick-configuration"	= " Joystick Einstellung ";
+	"gameoptions-wireframe-graphics-yes"	= " Grahtgitter Graphik: An ";
+	"gameoptions-wireframe-graphics-no"		= " Grahtgitter Graphik: Aus ";
+	"gameoptions-reduced-detail-yes"		= " Reduzierte Details: An ";
+	"gameoptions-reduced-detail-no"			= " Reduzierte Details: Aus ";
+	"gameoptions-shaderfx-not-available"	= " Schattierungseffekte: Nicht verfügbar ";
+	"gameoptions-shaderfx-@"				= " Schattierungseffekte: %@ ";
+	"shaderfx-not-available"				= "Nicht verfügbar";
+	"shaderfx-off"							= "Aus";
+	"shaderfx-simple"						= "Einfach";
+	"shaderfx-full"							= "Voll";
+	
+	"music-mode" =
+	(
+		"Aus",
+		"An",
+		"iTunes"
+	);
+	"growl-priority-levels" =
+	(
+		"An (für alle Meldungen)",
+		"An (für unwichtige Meldungen)",
+		"An (für wichtige Meldungen)",
+		"An (für sehr wichtige Meldungen)",
+		"An (für extrem wichtige Meldungen)",
+		"Aus (für alle Meldungen)"
+	);
+	"growl-not-available"					= "Nicht verfügbar";
+	
+	// Equip ship screen
+	"equip-title"					= "Schiffsausstattungen";
+	"equip-cash-@"					= "Geld: %@.";
+	"equip-no-equipment-available-for-purchase" = "Keine Ausrüstung im Angebot.";
+	"equip-repair-@"				= " Reparatur:%@";
+	"upgradeinfo-@-price-is-for-repairing" = "%@ (Preis für die Reparatur des jetzigen Systems).";
+	"@-will-replace-other-energy"	="%@ (Das installierte Energieladegerät wird als Altmetall verkauft).";
+	"forward-facing-string"			= " Voraus ";
+	"aft-facing-string"				= " Achtern ";
+	"port-facing-string"			= " Backbord ";
+	"starboard-facing-string"		= " Steuerbord ";
+	
+	// Contracts screen
+	"@-contracts-title"				= "%@ Transportmarkt";
+	
+	// contracts-to and contracts-within are common for both passengers and cargo.
+	"contracts-to"					= "Nach:";
+	"contracts-within"				= "Innerhalb:";
+	"contracts-passenger-name"		= "Name des Passagiers:";
+	"contracts-passenger-advance"	= "Anzahlung:";
+	"contracts-passenger-fee"		= "Honorar:";
+	"contracts-cargo-cargotype"		= "Fracht:";
+	"contracts-cargo-premium"		= "Kosten:";
+	"contracts-cargo-pays"			= "Entgelt:";
+	"contracts-cash-@-load-d-of-d-passengers-d-of-d-berths" = "Geld: %@. Fracht %d von %d t. Passagiere %d von %d Passagierkabinen.";
+	"contracts-@-a-@-wishes-to-go-to-@" = "%@, ein %@, möchte nach %@.";
+	"contracts-@-the-route-is-f-light-years-long-a-minimum-of-d-jumps" = "%@ Die Route ist %.1f Lichtjahre weit, mindestens %d Sprünge.";
+	"contracts-@-you-will-need-to-depart-within-@-in-order-to-arrive-within-@-time" = "%@ Sie müssen innerhalb %@ starten, damit Sie in %@ ankommen.";
+	"contracts-@-will-pay-@-@-in-advance-and-@-on-arrival" = "%@ Bezahlt werden %@: %@ im Voraus und %@ bei Ankunft.";
+	"contracts-deliver-a-cargo-of-@-to-@" = "Frachtlieferung von %@ nach %@.";
+	"contracts-@-the-contract-will-cost-you-@-and-pay-a-total-of-@" = "%@ Der Auftrag kostet %@ und bringt total %@.";
+	"contracts-no-time"				= "no time";
+	"contracts-day-word"			= "Tag";
+	"contracts-day-word-plural"		= "Tage";
+	"contracts-hour-word"			= "hr";
+	"contracts-hour-word-plural"	= "hrs";
+	"contracts-minute-word"			= "min";
+	"contracts-minute-word-plural"	= "min";
+	"contracts-second-word"			= "sec";
+	"contracts-second-word-plural"	= "sec";
+	
+	"cargo-ton"						= "Tonne";
+	"cargo-gram"					= "Gramm";
+	"cargo-kilogram"				= "Kilogramm";
+	"cargo-tons"					= "Tonnen";
+	"cargo-grams"					= "Gramm";
+	"cargo-kilograms"				= "Kilogramm";
+	
+	// Ship’s manifest screen
+	"manifest-title"				= "Ladungsliste des Schiffs";
+	"manifest-none"					= " Keine.";
+	"manifest-cargo-d-d"			= "Fracht %d t (%d t):";
+	"manifest-passengers-d-d"		= "Passagiere %d (%d):";
+	"manifest-contracts"			= "Aufträge:";
+	"manifest-missions"				= "Missionen:";
+	"manifest-@-travelling-to-@-to-arrive-within-@"	= " Von %@ reise nach %@ mit Ankuft innerhalb %@.";
+	"manifest-deliver-@-to-@within-@"	= " Lieferung von %@ nach %@ bis %@.";
+	
+	// Shipyard screen
+	"@-shipyard-title"				= "%@ Schiffe zum Verkauf";
+	"shipyard-shiptype"				= "Schifftyp:";
+	"shipyard-price"				= "Preis:";
+	"shipyard-cargo"				= "Fracht:";
+	"shipyard-cargo-d-tc"			= "Fracht: %d TC";
+	"shipyard-speed"				= "Geschwindigkeit:";
+	"shipyard-speed-f-ls"			= "Geschwindigkeit: %.3f LS";
+	"shipyard-no-ships-available-for-purchase" = "Keine Schiffe im Angebot.";
+	"shipyard-your-@-trade-in-value-@" = "Ihr %@’s Eintauschwert: %@.";
+	"shipyard-total-available-%@-%@-plus-%@-trade" = "Total Verfügbar: %@. (%@ Konto + %@ Eintauschwert.)";
+	"passenger-berth-plural"		= "Passagierkabinen";
+	"passenger-berth-single"		= "Passagierkabine";
+	"extra-@-@"						= " Extra %@ (%@)";
+	"plus-@"						= " Plus %@.";
+	"shipyard-standard-customer-model" = " Standard Modell.";
+	"shipyard-forward-weapon-has-been-upgraded-to-a-@" = " Vordere Waffe wurde aufgewertet zu einer %@.";
+	"shipyard-forward-weapon-upgraded-to-@" = " Vordere Waffe aufgewertet zu %@.";
+	"shipyard-selling-price-@" = " Verkaufspreis %@.";
+	"shipyard-price-@"				= " Preis %@.";
+	
+	// Load/Save screens shared information
+	"loadsavescreen-commander-name" = "Name des Kommandanten";
+	"loadsavescreen-rating"		= "Bewertung";
+	"loadsavescreen-no-commanders-found" = "Keine Spielstände gefunden";
+	"loadsavescreen-commander-@-rated-@-has-@-legal-status-@-ship-@-location-@-g-@-timestamp-@" = "Kommandant %@ ist als %@ Bewertet und hat %@ auf der Bank. Rechtsstatus: %@. Schiff: %@. Ort: %@ (G%d). Zeitstempel: %@";
+	"loadsavescreen-hold-@-and-press-return-to-open-folder-@"= "Halten Sie %@ und drücken Sie Enter und den Ordner %@ zu öffnen";
+	"loadsavescreen-hold-@-and-press-return-to-open-parent-folder-@" = "Halten Sie %@ und drücken Sie Enter und den höheren Ordner %@ zu öffnen";
+	
+	// Load commander screen
+	"loadscreen-title"				= "Spielstand auswählen";
+	
+	// Load game failed messages
+	"loadfailed-saved-game-failed-to-load"	= "Spielstand kann nicht geladen werden.";
+	"loadfailed-no-file-specified"		= "Keine Datei angegeben!";
+	"loadfailed-could-not-load-file"	= "Datei konnte nicht geladen werden.";
+	"loadfailed-could-not-find-ship-type-@-please-reinstall-the-appropriate-OXP"
+						= "Kann den Raumschifftyp \"%@\" nicht finden - bitte passendes OXP nachinstallieren.";
+	"loadfailed-invalid-saved-game-no-ship-specified"
+						= "Ungültiger Spielstand - kein Schiff angegeben.";
+	"loadfailed-could-not-set-up-player-ship"	= "Raumschiff des Spielers kann nicht eingerichtet werden.";
+	
+	// Save/Overwrite commander screens
+	"savescreen-title"				= "Spielstand sichern";
+	"savescreen-commander-name-@"	= "Name des Kommandanten: %@";
+	"savescreen-commander-name"		= "Name des Kommandanten: ";
+	"overwrite-save-commander-@"	= "Speichere Kommandant %@";
+	"overwritescreen-commander-@-already-exists-overwrite-query" = "Es gibt schon eine Datei namens %@. Wollen Sie die Datei überschreiben?";
+	"overwritescreen-yes"			= " Überschreiben ";
+	"overwritescreen-no"			= " Abbruch ";
+	
+	// Mission screen
+	"mission-information"			= "Missions Information";
+	
+	// Game Over screen
+	"gameoverscreen-game-over"		= "Spiel verloren";
+	"gameoverscreen-press-space"	= "Leertaste drücken";
+	
+	// Various HUD dials and/or messages and miscellaneous strings
+	"no-target-string"				= "Kein Ziel";
+	"communications-log-string"		= "Kommunikationsprotokoll";
+	"adjusting-word"				= " (selbstregelnd)";
+	"strict-play-enabled"			= "Originaler Spielmodus";
+	"unrestricted-play-enabled"		= "Erweiterter Spielmodus";
+	"human-word"					= "menschlich"; // Important – only lower case characters here!
+	"human-colonial-description"	= "Mensch";
+	"human-colonial-description-plural" = "Menschen";
+	"clock-format"					= "%07d:%02d:%02d:%02d";
+	"clock-format-adjusting"		= "%07d:%02d:%02d:%02d (korrigiert)";
+	"danger-fuel-leak"				= "Gefahr! Treibstoffleck!";
+	"legal-desc-alien"				= "Ausserirdisch";
+	"legal-desc-system-vessel"		= "Standard Raumschiff";
+	"legal-desc-military-vessel"	= "Militärisches Raumschiff";
+	"planetname-derivative-suffix"	= "ian";	// This is the suffix used with %I (producing 'Laveian' for example)
+	
+	"oxp-is-incompatible"			= "\t“%@” ist inkompatibel mit Version %@ von Oolite.";
+	
+	// Space station docking clearance
+	"please-wait-until-d-ships-have-completed-their-approach"
+						= (
+							"Bitte warten Sie bis alle Schiffe angedockt sind. Sie sind in der Warteschleife auf Position %d.",
+							"Schiffe landen gerade. Bitte warten Sie. Sie sind Nummer %d in der Warteschleife.",
+							"Freigabe kann momentan nicht erteilt werden. Sie sind in der Warteschleife auf Position %d.",
+							"Schiffe sind im direkten Anflug. Bitte warten Sie auf die Freigabe."
+						  );
+						
+	"please-wait-until-d-launching-ships-have-cleared-station"
+						= (
+							"Bitte warten Sie bis alle Schiffe das Dock verlassen haben. Sie sind in der Warteschleife auf Position %d.",
+							"Schiffe verlassen gerade das Dock. Bitte warten Sie.",
+							"Freigabe kann momentan nicht erteilt werden. Bitte halten Sie die jetzige Position.",
+							"Schiffe starten gerade. Sie sind auf Position %d der Warteschleife - bitte warten.",
+						  );
+	"station-does-not-require-docking-clearance"
+						= (
+							"Sie brauchen keine Landeerlaubnis, docken Sie an wann Sie möchten.",
+							"Landeerlaubnis nicht erforderlich.",
+							"Kommen Sie rein, Kommandant!",
+						  );
+	"H-station-refuses-to-grant-docking-clearance"
+						= (
+							"Die %H Station lässt keine Kriminellen andocken.",
+							"Krimineller, wir verweigern ein Andocken. Sie sind auf %H nicht willkommen!",
+							"Negativ. %H Sicherheitsüberprüfung zeigt ein Strafregister.",
+							"Andock Erlaubnis verweigert nach den Richtlinien von GalCop."
+						  );
+	"you-are-cleared-to-dock-please-proceed-clearance-expires-at-@"
+						= (
+							"Freigabe zum Andocken, fahren Sie fort. Freigabe erlischt um %@",
+							"Andockerlaubnis erteilt, Kommandant. Sie haben Zeit bis %@",
+							"Andocken erlaubt. Ihr Zeitfenster schliesst um %@",
+							"Erlaubnis erteilt. Docken Sie an. Ihr Zeitfenster ist gültig bis %@"
+						  );
+	"your-docking-clearance-has-been-extended-until-@"
+						= (
+							"Ihr Zeitfenster zum Andocken wurde verlängert bis %@",
+						  );
+	"docking-clearance-about-to-expire"
+						= (
+							"Sie haben noch 20 Sekunden zum docken.",
+							"Ihr Zeitfenster zum Andocken schliesst sich. Beeilung!",
+							"Warnung! Ihre Erlaubnis zum Andocken läuft ab!",
+						  );
+	"docking-clearance-expired"
+						= "Ihre Freigabe ist abgelaufen. Verlassen sie die Landezone!";
+	"docking-clearance-cancelled"
+						= "Ihre Freigabe wurde aufgehoben. Verlassen sie die Landezone!";
+	"docking-clearance-abort-cancelled"
+						= "Notfall! Brechen Sie den Landeanflug ab und verlassen Sie sofort die Landezone!";
+	"you-have-been-fined-@-cr-for-unauthorized-docking"
+						= "Sie wurden mit einer Busse von %@ belegt, wegen unerlaubtem docken!";
+	
+	// delivery reports
+	"arrival-report-title"			= "%H Ankunftsbericht";
+	
+	"passenger-delivered-okay-@-@-@" = "%@ dankt Ihnen, und bezahlt Ihnen %@ für den Flug nach %@.\n";
+	"passenger-delivered-late-@-@-@" = "%@ bezahlt Ihnen %@ für die späte Ankunft in %@.\n";
+	"passenger-failed-@"			= "%@ ist wütend über die Verspätung und verlässt Ihr Schiff.\n";
+	
+	"cargo-delivered-okay-@-@"		= "Droiden entladen die %@ und Sie erhalten %@.";
+	"cargo-delivered-short-@-@-d"	= "Droiden entladen die %@, Sie erhalten nur %@ durch den Abzug von %d Prozent bei Verspätung.";
+	"cargo-refused-short-%@"		= "Sie haben zu wenig geladen um die %@ abzuliefern.";
+	"cargo-delivered-late-@"		= "Sie sind zu spät mit den %@ und niemand will es mehr.";
+	"cargo-failed-@"				= "Sie haben versagt bei der Lieferung von %@ und niemand bezahlt mehr dafür.";
+	
+	// background scenes for GUI screens
+	"gui-scene-show-planet"			= ( "target-planet   120 80 640" );
+	
+	// character descriptions
+	// basic short desc - “A $species from $homeworld”
+	"character-a-@-from-@"			= "Ein %@ von %@";
+	
+	// rewards and bounties from escapepods
+	"rescue-reward-for-@@-@-credits" = "Für die Rettung von %@, %@, bezahlt Ihnen die Versicherung %@.";
+	"capture-reward-for-@@-@-credits" = "Für die Ergreifung von %@, %@, erhalten Sie ein Kopfgeld von %@.";
+	
+	// Commodity names
+	"commodity-name food"			= "Lebensmittel";
+	"commodity-name textiles"		= "Textilien";
+	"commodity-name radioactives"	= "Radioaktives Material";
+	"commodity-name slaves"			= "Sklaven";
+	"commodity-name liquor/wines"	= "Spirituosen";
+	"commodity-name luxuries"		= "Luxusartikel";
+	"commodity-name narcotics"		= "Betäubungsmittel";
+	"commodity-name computers"		= "Computers";
+	"commodity-name machinery"		= "Maschinen";
+	"commodity-name alloys"			= "Legierungen";
+	"commodity-name firearms"		= "Schusswaffen";
+	"commodity-name furs"			= "Pelze";
+	"commodity-name minerals"		= "Mineralien";
+	"commodity-name gold"			= "Gold";
+	"commodity-name platinum"		= "Platin";
+	"commodity-name gem-stones"		= "Edelsteine";
+	"commodity-name alien items"	= "Ausserirdisches";
+	
+	//autosave filename
+	"autosave-commander-name"		= "autosave";
+	
+	// Nova mission strings
+	"oolite-nova-coward"			= "Feigling! Sie haben den Flüchtlingen nicht geholfen!";
+	"oolite-nova-refugees"			= "Eine Ladung von Flüchtlingen von %I.";
+
+"lowercase_ignore"      = yes;	//Lowercase will not enforced.
+}

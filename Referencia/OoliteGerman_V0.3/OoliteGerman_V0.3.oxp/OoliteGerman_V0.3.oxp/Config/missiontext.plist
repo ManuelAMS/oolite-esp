@@ -1,0 +1,44 @@
+{
+	// Constrictor Hunt mission (oolite-legacy-script.plist)
+	"constrictor_hunt_0_150" = "“Der Constrictor wurde zuletzt bei Reesdice gesehen, Kommandant.”";
+	"constrictor_hunt_0_28" = "“Ja, ein ungewöhnliches neues Schiff war hier, mit galaktischem Hyperraumantrieb.”";
+	"constrictor_hunt_0_36" = "“Ein seltsam aussenhendes Schiff war vor kurzem hier. Scheint nach Arexe gesprungen zu sein.”";
+	"constrictor_hunt_1_118" = "“Sie können den gemeinen Schurken angreifen, er ist in Orarra.”";
+	"constrictor_hunt_1_193" = "“Da draussen ist ein wirklich gefährlicher Pirat.”";
+	"constrictor_hunt_1_253" = "“Das seltsame Schiff war plötzlich hier, überflog die Sonne und sprang nach Inbibe, wie ich hörte.”";
+	"constrictor_hunt_1_53" = "“Oh ja, ein schrecklicher Schurke hat viele Piraten abgeschossen und flog nach Usleri.”";
+	"constrictor_hunt_1_79" = "“Das Schiff des Schurken flog nach Ausar. Meine Laser hinterliessen auf seinem Rumpf nicht einen einzigen Kratzer.”";
+	"constrictor_hunt_1_A" = "“Ich hörte, dass ein eigenartig aussehendes Schiff bei Errius gesehen wurde.”";
+	
+	"constrictor_hunt_brief1" = "---INCOMING MESSAGE\n\nIch grüsse Sie Kommandant,\n\nIch bin Kapitän Curruthers der Marine Ihrer Majestät und ich bitte Sie um einen Moment Ihrer wertvollen Zeit. Wir möchten, dass Sie einen kleinen Auftrag für uns erledigen.\nDieses Schiff ist ein neues Modell, ein Constrictor, ausgerüstet mit einem streng geheimen neuen Schildgenerator.\n\nUnglücklicherweise wurde es gestohlen.\n";
+	"conhunt_short_desc1" = "Jagen Sie den bei Xeer gestolenen Constrictor.";
+	"constrictor_hunt_brief1a" = "Es verschwand vor 5 Monaten aus unserer Werft in Xeer und wurde zuletzt in Reesdice gesehen. Ihre Mission, sollten Sie sie annehmen, ist das Schiff zu suchen und zu zerstören. Bitte beachten Sie, dass nur Militärlaser die neuen Schilde durchdringen und dass das Schiff über ein Störsender verfügt.\n\nViel Glück, Kommandant.\n\n---MESSAGE ENDS.";
+	"constrictor_hunt_brief1b" = "Es verschwand vor 5 Monaten aus unserer Werft in Xeer und sprang vermutlich in diese Galaxie. Ihre Mission, sollten Sie sie annehmen, ist das Schiff zu suchen und zu zerstören. Bitte beachten Sie, dass nur Militärlaser die neuen Schilde durchdringen und dass das Schiff über ein Störsender verfügt.\n\nViel Glück, Kommandant.\n\n---MESSAGE ENDS.";
+	"constrictor_hunt_debrief" = "---INCOMING MESSAGE\n\nGlückwunsch Kommandant!\n\nFür Sie ist immer ein Platz frei in der Marine Ihrer Majestät.\n\nVielleicht früher als Sie denken...\n\n---MESSAGE ENDS.";
+	"conhunt-thief-captured" = "Sie haben den Dieb gefangen genommen! Die Marine Ihrer Majestät belohnt Sie mit einem Bonus von 1000 credits!\n";
+	
+	// Thargoid Plans mission (oolite-legacy-script.plist)
+	"thargoid_plans_debrief" = "---INCOMING MESSAGE\n\nWir werden Ihre guten Dienste nicht vergessen.\n\nWir denken die Thargoiden werden Sie nicht suchen.\n\nFür den Moment bitte nehmen Sie diesen Marine Energie-Schnelllader als Bezahlung.\n\n---MESSAGE ENDS.";
+	"thargoid_plans_intro_brief" = "---INCOMING MESSAGE\n\nAchtung Kommandant, Ich bin Kapitän Fortesque der Marine Ihrer Majestät.\n\nWir benötigen Ihre Dienste erneut.\n\nFliegen SIe bitte nach Ceerdi für weitere Informatiopnen.\n\nWenn Sie Erfolg haben, winkt eine Belohnung.\n\n---MESSAGE ENDS.";
+	"thargoid_plans_main_brief" = "---INCOMING MESSAGE\n\nGuten Tag Kommandant.\n\nIch bin Agent Blake des Marinegeheimdienstes.\nWie Sie wissen, konnte die Marine die Thargoiden jahrelang fernhalten.\nNun hat sich die Situation geändert, wir sind nun bereit für einen Gegenagriff auf ihre Heimatwelt.\n\nIch habe den Verteidigungsplan ihrer Heimatwlt erhalten. Die wissen, dass wir etwas haben, aber wissen nicht was wir haben. Aber wir können es nicht unentdeckt zum Birera Stützpunkt funken, ein Schiff muss hinfliegen. Dazu wurden Sie ausgewählt.\n\nHaben Sie die Pläne übergeben, werden Sie bezahlt.\n\nViel Glück Kommandant.\n\n---MESSAGE ENDS.";
+	"thargplans_short_desc1" = "Fliegen Sie nach Ceerdi für weitere Informationen.";
+	"thargplans_short_desc2" = "Bringen Sie die geheimen Pläne nach Birera.";
+	
+	// Nova mission (oolite-legacy-script.plist)
+	"nova_1" = "Sie kommen zu einem schrecklichen Zeitpunkt, Kommandant.\n\nUnsere Sonne ist instabil und kann jederzeit zur SuperNova werden. Alle unsere Schiffe verlassen das System, die letzten Flüchtlinge brauchen noch Platz auf Raumschiffen.\n\nBitte, bitte helfen Sie uns zu fliehen!";
+	"nova_hero" = "Kommandant, danken Ihnen.\n\nSie haben uns alle in Sicherheit gebracht, leider haben wir kein Geld um Sie zu entlohnen,\nwir brauchten alles Geld um auf die Raumstation zu gelangen.\n\nAber Sie haben unsere ewige Dankbarkeit... und etwas unserer wenigen wertvollen Habe.\n\nSie sind unser Held!";
+	"nova_missiondesc" = "Bringen Sie die Flüchtlinge in Sicherheit.";
+	"nova_yesno" =
+	{
+		NO = "Nein, tut mir leid.";
+		YES = "Ja, ich helfe.";
+	};
+	
+	// Trumbles mission (oolite-trumbles-mission.js)
+	"oolite_trumble_offer" = "Kommandant [commander_name],\n\nSie sehen aus wie jemand der einen Trumble auf seiner [commander_shipdisplayname] gebrauchen kann!\n\nEs gehört Ihnen für nur 30 credits.";
+	"oolite_trumble_offer_yesno" =
+	{
+		"OOLITE_TRUMBLE_NO" = "Nein danke. Keine Tiere in meinem Schiff.";
+		"OOLITE_TRUMBLE_YES" = "Gut, Ich nehm eines, die sind so süss.";
+	};
+}

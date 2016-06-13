@@ -1,0 +1,395 @@
+(
+	(
+		0, 2, "Carburante",
+		"EQ_FUEL",
+		"Carburante per i motori iperspaziali.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+			requires_non_full_fuel = true;
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		1, 300, "Missile",
+		"EQ_MISSILE",
+		"Missile intelligente HM3 di Faulcon de Lacy, veloce e accurato quando usato in combinazione con gli scanner da bersaglio standard.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+			/* NOTE: for reasons of backwards compatibility, this defaults to true for equipment whose key ends with MISSILE or MINE. */
+			requires_empty_pylon = true;
+			strict_mode_compatible = true;
+			/* NOTE: this is always zero for pylon-mounted equipment */
+			damage_probability = 0;
+		}
+	),
+	(
+		1, 4000, "Estensione Stiva",
+		"EQ_CARGO_BAY",
+		"Estensione dello scafo che permette l'inclusione di tonnellate extra di carico.",
+		{
+			condition_script = "oolite-conditions.js";
+			damage_probability = 0;
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		2, 6000, "Sistema E.C.M.",
+		"EQ_ECM",
+		"Circuiti di alta potenza che creano impulsi elettromagnetici capaci di causare la detonazione di missili in arrivo.",
+		{
+			condition_script = "oolite-conditions.js";
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		5, 5250, "Pale per Carburante",
+		"EQ_FUEL_SCOOPS",
+		"Pale magnetiche ad ampio raggio permettono la cattura durante il volo di minerali, gas di combustione dalla corona solare e recupero di detriti spaziali.",
+		{
+			condition_script = "oolite-conditions.js";
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		6, 10000, "Capsula di Salvataggio",
+		"EQ_ESCAPE_POD",
+		"Una semplice capsula di emergenza, con sistema di supporto vitale, l'acquisto include un'assicurazione completa per la sua nave e sistemi.",
+		{
+			condition_script = "oolite-conditions.js";
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		7, 9000, "Bomba di Energia",
+		"EQ_ENERGY_BOMB",
+		"Una iper-arma a singolo uso, capace di distruggere tutte le navi piccole alla portata.",
+		{
+			condition_script = "oolite-conditions.js";
+			strict_mode_only = true;
+		}
+	),
+	(
+		8, 15000, "Unità di Energia Addizionale",
+		"EQ_ENERGY_UNIT",
+		"Un'unità di ricarica di energia ad efficienza migliorata.",
+		{
+			condition_script = "oolite-conditions.js";
+			incompatible_with_equipment = "EQ_NAVAL_ENERGY_UNIT";
+			strict_mode_compatible = true;
+		}
+	),
+	/* next item has too high initial TL to be available */
+	(
+		99, 500000, "Unità di Energia Navale",
+		"EQ_NAVAL_ENERGY_UNIT",
+		"Un'unità di ricarica di energia speciale, con efficienza molto alta, lo stesso modello viene fornito alle navi della Marina.",
+		{
+			condition_script = "oolite-conditions.js";
+			strict_mode_compatible = true;
+		}
+		/* Special case: this eq MUST STAY COMPATIBLE with EQ_ENERGY_UNIT - It's all handled properly in code.
+		Full details at http://developer.berlios.de/bugs/?func=detailbug&bug_id=13507&group_id=3577
+		Original fix made in rev 1544 and broken in rev 1686. Fixed once again in rev 2599. Kaks 20090925 */
+	),
+	(
+		9, 15000, "Computer di Attracco",
+		"EQ_DOCK_COMP",
+		"Un semplice sistema di autopilota e comunicazione interna che si interfaccia coi sistemi locali della Stazione.",
+		{
+			condition_script = "oolite-conditions.js";
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		10, 50000, "Iperdrive Galattica",
+		"EQ_GAL_DRIVE",
+		"Un sovraccarico ad uso singolo per i motori iperspaziali, che permette il viaggio inter-galattico.",
+		{
+			condition_script = "oolite-conditions.js";
+			available_to_all = true;
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		3, 4000, "Laser a Impulso",
+		"EQ_WEAPON_PULSE_LASER",
+		"Laser a Impulsi ad alta potenza, una minima configurazione di difesa.",
+		{
+			condition_script = "oolite-conditions.js";
+			available_to_all = true;
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		4, 10000, "Laser a Raggi",
+		"EQ_WEAPON_BEAM_LASER",
+		"Laser da ricarico rapido, trasmette più energia in meno tempo per risultati più effettivi.",
+		{
+			condition_script = "oolite-conditions.js";
+			available_to_all = true;
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		10, 8000, "Laser Minerario",
+		"EQ_WEAPON_MINING_LASER",
+		"Alta potenza, lento ricarico. Ideale per estrazione minerale da asteroidi grandi.",
+		{
+			condition_script = "oolite-conditions.js";
+			available_to_all = true;
+			strict_mode_compatible = true;
+		}
+	),
+	(
+		10, 60000, "Laser Militare",
+		"EQ_WEAPON_MILITARY_LASER",
+		"Raggio Laser di potenza aumentata, sviluppato per la Marina spaziale.",
+		{
+			condition_script = "oolite-conditions.js";
+			available_to_all = true;
+			strict_mode_compatible = true;
+		}
+	),
+	/* next item has too high initial TL to be available */
+	(
+		99, 500000, "Occultatore",
+		"EQ_CLOAKING_DEVICE",
+		"Dispositivo di occultamento sperimentale della Marina spaziale.",
+		{
+			condition_script = "oolite-conditions.js";
+			portable_between_ships = true;
+			available_to_all = true;
+			strict_mode_compatible = true;
+		}
+	),
+	(	/* Thargoid equipment, incompatible with non-thargoid ships. Not buyable because of its TL. */
+		100, 1000, "Thargon",
+		"thargon",
+		"Nave robotica aliena.",
+		{
+			strict_mode_compatible = true;
+			available_to_player = false;
+		}
+	),
+	(	/* Thargoid equipment, standardised name. Incompatible with non-thargoid ships. Not buyable because of its TL. */
+		100, 1000, "Thargon",
+		"thargon",
+		"Nave robotica aliena.",
+		{
+			strict_mode_compatible = true;
+			available_to_player = false;
+		}
+	),
+	(	/* Thargoid equipment, standardised name. Incompatible with non-thargoid ships. Not buyable because of its TL. */
+		100, 1000, "Thargon",
+		"EQ_THARGON",
+		"Nave robotica aliena.",
+		{
+			strict_mode_compatible = true;
+			available_to_player = false;
+		}
+	),
+	(
+		/* Cute, fluffy pet. Not buyable through usual channels, you'll have to find a specialist merchant. */
+		100, 300, "Trumble",
+		"EQ_TRUMBLE",
+		"Un picolo carino animaleto alieno.",
+		{
+			strict_mode_compatible = true;
+			visible = false;	// Hidden on status screen.
+			damage_probability = 0;
+		}
+	),
+	( /* Passenger Compartment, like missiles this can be bought multiple times */
+		5, 8250, "Cabina Passeggeri - consuma 5t di spazio di carico",
+		"EQ_PASSENGER_BERTH",
+		"Fornisce sistemi di supporto vitali, divertimento e comfort per un passeggero singolo.",
+		{
+			available_to_all = true;
+			available_to_NPCs = false;
+			condition_script = "oolite-conditions.js";
+			requires_cargo_space = 5;
+			damage_probability = 0;
+		}
+	),
+	( /* Passenger Compartment Removal */
+		1, 1000, "Togliere Cabina Passeggeri - riusa 5t di spazio",
+		"EQ_PASSENGER_BERTH_REMOVAL",
+		"Toglie una cabina passeggeri dalla nave.",
+		{
+			available_to_all = true;
+			available_to_NPCs = false;
+			condition_script = "oolite-conditions.js";
+			requires_free_passenger_berth = true;
+		}
+	),
+	( /* Missile Removal */
+		1, 200, "Smontare e vendere tutte le armi montati sui piloni",
+		"EQ_MISSILE_REMOVAL",
+		"Smonta, mette in sicurezza, e rivende a prezzo di mercato tutti i missili e le mine montate sulla nave.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+			requires_mounted_pylon = true;
+		}
+	),
+	( /* ecm hardened missile */
+		9, 3500, "Missile Rinforzato contro ECM",
+		"EQ_HARDENED_MISSILE",
+		"Missile automatico HMX5 della Faulcon de Lacy - rinforzato contro i sistemi ECM.",
+		{
+			condition_script = "oolite-conditions.js";
+			available_to_all = true;
+			/* NOTE: for reasons of backwards compatibility, this defaults to true for equipment whose key ends with MISSILE or MINE. */
+			requires_empty_pylon = true;
+			damage_probability = 0;
+		}
+	),
+	(
+		10, 6000, "Iniettori di Carburante Iperspaziale",
+		"EQ_FUEL_INJECTION",
+		"Un convertitore aggiunto allo sistema di guida della sua nave che può inietere carburante iperspaziale non usato dentro i motori principali di azione, creando un augmento della velocità notevole.",
+		{
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		11, 4500, "Scanner Bersaglio Potenziato",
+		"EQ_SCANNER_SHOW_MISSILE_TARGET",
+		"Aggiunge un indicatore visibile, con distanza e stato legale, intorno al bersaglio selezionato col computer di combatimento.",
+		{
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		5, 3250, "Sistema Multi-Bersaglio",
+		"EQ_MULTI_TARGET",
+		"Permette di cambiare selezione tra i piloni di missili e selezioni di bersaglio multiple.",
+		{
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		7, 6500, "Bussola Spaziale Avanzata",
+		"EQ_ADVANCED_COMPASS",
+		"Una bussola di navigazione stellare tipo Tyley-Feynman GW-99 con vari modi di selezione la destinazione.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		6, 22500, "Matrice di Navigazione Avanzata",
+		"EQ_ADVANCED_NAVIGATIONAL_ARRAY",
+		"Un upgrade del software del computer di navigazione, migliora la funzionalità della Mappa Galattica e permette di pianificare il viaggio con efficenza.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		8, 12500, "Espansione Memoria Sistema Bersaglio",
+		"EQ_TARGET_MEMORY",
+		"Un matrice di memoria con 16 processori per il Sistema Bersaglio. Permette selezione di bersagli precedenti.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	/* next item has a TL too high to be available */
+	(
+		99, 150000, "Laser Thargoide",
+		"EQ_WEAPON_THARGOID_LASER",
+		"Arma Thargoide catturata, punta automaticamente.",
+		{
+			available_to_player = false;
+		}
+	),
+	(
+		6, 25000, "Mina Cascada Quirium",
+		"EQ_QC_MINE",
+		"Mina Cascada Quirium da Tyley-Feynman. Si monta al posto di un missile, viene lanciata dalla parte posteriore della sua nave. Capace di distruzione di massa e inizia reazioni a catena ai motori iperspaziali delle navi prese nel suo raggio effettivo.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+			/* NOTE: for reasons of backwards compatibility, this defaults to true for equipment whose key ends with MISSILE or MINE. */
+			requires_empty_pylon = true;
+			/* NOTE: this is always zero for pylon-mounted equipment */
+			damage_probability = 0;
+		}
+	),
+	(
+		10, 147500, "Aumentatori di Scudi",
+		"EQ_SHIELD_BOOSTER",
+		"Usano una tecnologia che aumenta drammaticamente la capacità degli scudi difensivi standard.",
+		{
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		13, 475500, "Aumentatori di Scudi Militari",
+		"EQ_NAVAL_SHIELD_BOOSTER",
+		"Tecnologia militare, usata in combinazione con scudi standard e tecnologia di aumento della resa degli scudi, aumenta ancora di più la capacità degli scudi difensivi standard.",
+		{
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	/* next item was a test item */
+	(
+		2, 2000, "Doppio Cannone di Plasma",
+		"EQ_WEAPON_TWIN_PLASMA_CANNON",
+		"Cannone rudimentale, consegna cariche di plasma a velocità sub-luce."
+	),
+	/* new items */
+	(
+		4, 15000, "Scudo Termico Esterno",
+		"EQ_HEAT_SHIELD",
+		"Addizionale copertura di fibre ceramidiche, ineffettiva contro armi, ma fornisce extra protezione solare.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	(
+		9, 23950, "Scanner di Wormhole",
+		"EQ_WORMHOLE_SCANNER",
+		"Il scanner di wormhole di Mössbauer-Krantz Works viene integrato nel'sistema di acquisizione bersagli esistente. Analizza l'energia rimanente di un wormhole e, in combinazione con il software della Carta Galattica, calcola il sistema di destinazione più probabile.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	/* renovation price is a dummy value, actually 10% of the ship's value which will vary by ship */
+	(
+		6, 1000, "Manutenzione Scafo",
+		"EQ_RENOVATION",
+		"Copre pagamenti di attracco, pulizia e manutenzione delle parti dello scafo danneggiate, deionizazione scudi e pala magnetica, calibrazione sistemi, verniciatura e lavaggio tappezzeria.",
+		{
+			available_to_all = true;
+			condition_script = "oolite-conditions.js";
+		}
+	),
+	/* next item has a TL too high to be available */
+	(
+		99, 1500000, "Contromisure Militari Anti-Scanner (CMAS)",
+		"EQ_MILITARY_JAMMER",
+		"Sviluppato da prototipi sperimentali di occultamento, questo congegno preventa navi ostili di osservare la sua nave sul radar."
+	),
+	/* next item has a TL too high to be available */
+	(
+		99, 250000, "Filtro Militare per Scanner",
+		"EQ_MILITARY_SCANNER_FILTER",
+		"Filtra i segnali emanati da contromisure militari anti-scanner(CMAS) e permette di osservare sul radar navi protette dal CMAS."
+	),
+	/* NPC equipment, incompatible with player ship. Not buyable because of its TL.*/
+	(
+		100, 147500, "Aumentatori di Scudo",
+		"EQ_SHIELD_ENHANCER",
+		"Tecnologia di aumentazione livello scudi, aumenta dramaticamente la capabilità dei scudi difensivi standard.",
+		{
+			available_to_player = false;
+		}
+	)
+)

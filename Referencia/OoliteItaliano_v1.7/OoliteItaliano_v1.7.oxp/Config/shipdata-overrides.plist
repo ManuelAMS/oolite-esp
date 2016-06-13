@@ -1,0 +1,138 @@
+{
+	"alloy" =
+	{
+		display_name = "Frammento di Metallo";
+	};
+	"asteroid" =
+	{
+		display_name = "Asteroide";
+	};
+	"barrel" =
+	{
+		display_name = "Contenitore carico";
+	};
+	"boa-mk2" =
+	{
+		display_name = "Boa Classe Incrociatore";
+	};
+	"boa-mk2-player" =
+	{
+		display_name = "Boa Classe Incrociatore";
+	};
+	"boulder" =
+	{
+		display_name = "Roccia";
+	};
+	"buoy" =
+	{
+		display_name = "Faro di Navigazione";
+	};
+	"buoy-witchpoint" =
+	{
+		display_name = "Faro Punto Entrata Iperspaziale";
+	};
+	"cloaking-device" =
+	{
+		display_name = "Contenitore carico particolare";
+	};
+	"coriolis-station" =
+	{
+		display_name = "Stazione Coriolis";
+	};
+	"dodecahedron-station" =
+	{
+		display_name = "Stazione Dodecahedron";
+	};
+	"ecm-proof-missile" =
+	{
+		display_name = "Missile ECM Resistente";
+	};
+	"escape-capsule" =
+	{
+		display_name = "Capsula di Fuga";
+	};
+	"icosahedron-station" =
+	{
+		display_name = "Stazione Icosahedron";
+	};
+	"moray" =
+	{
+		display_name = "Barca Stellare Moray";
+	};
+	"moray-player" =
+	{
+		display_name = "Barca Stellare Moray";
+	};
+	"morayMED" =
+	{
+		display_name = "Barca di Soccorso Moray";
+	};
+	"morayMED-player" =
+	{
+		display_name = "Barca di Soccorso Moray";
+	};
+	"oolite-unknown-ship" =
+	{
+		display_name = "Punto Interrogativo";
+	};
+	"qbomb" =
+	{
+		display_name = "Mina Cascada Quiriume";
+	};
+	"rock-hermit" =
+	{
+		display_name = "Eremita";
+	};
+	"scarred-alloy" =
+	{
+		display_name = "Frammento di Metallo";
+	};
+	"shuttle" =
+	{
+		display_name = "Navetta Orbitale";
+	};
+	"sidewinder" =
+	{
+		display_name = "Nave Esplorativa Sidewinder";
+	};
+	"sidewinder-escort" =
+	{
+		display_name = "Nave Esplorativa Sidewinder";
+	};
+	"splinter" =
+	{
+		display_name = "Schieggia";
+	};
+	"tharglet" =
+	{
+		display_name = "Caccia Robotica Thargoid";
+	};
+	"thargoid" =
+	{
+		display_name = "Nave da Guerra Thargoid";
+	};
+	"transporter" =
+	{
+		display_name = "Nave di Trasporto";
+	};
+	"transporter-miner" =
+	{
+		display_name = "Nave di Trasporto Mineraria";
+	};
+	"viper" =
+	{
+		display_name = "Viper di GalCop";
+	};
+	"viper-interceptor" =
+	{
+		display_name = "Viper di GalCop Intercettatore";
+	};
+	"viper-pursuit" =
+	{
+		display_name = "Viper di GalCop";
+	};
+	"wreckage-component" =
+	{
+		display_name = "Reliti";
+	};
+}

@@ -1,0 +1,151 @@
+{
+	// Constrictor Hunt mission (oolite-constrictor-hunt-mission.js)
+	
+	"constrictor_hunt_title" = "Missione di Marina Navale Spaziale";
+	"constrictor_hunt_0_150" = "“Il Constrictor è stato visto per l' ultima volta a %J036, comandante.”";
+	"constrictor_hunt_0_28" = "“Si, una nuova inconsueta nave aveva un iperdrive galattico installato qui, lo ha anche usato.”";
+	"constrictor_hunt_0_36" = "“Una nave dall' apparenza strana è partita da qui un po' di tempo fa. Sembrava andare verso %J028.”";
+	"constrictor_hunt_1_118" = "“Potresti incontrarti con il brigante violento se lo volessi. È ad %J193.”";
+	"constrictor_hunt_1_193" = "“C'e un pirata veramente letale lì fuori.”";
+	"constrictor_hunt_1_253" = "“Questa strana nave è arrivata all' improvviso, ha sfiorato il sole e poi ha saltato. Si dice che sia andata ad %J079.”";
+	"constrictor_hunt_1_53" = "“Oh caro mio, si. Un mascalzone spaventoso con una nave che credo voi umani chiamiate fondoschiena di ferro ha ammazzato tanti di quei pirati ed è andato a %J118.”";
+	"constrictor_hunt_1_79" = "“Una nave mascalzona ha provato a distruggermi ad %J053. I miei laser non le hanno neanche graffiato lo scafo.”";
+	"constrictor_hunt_1_A" = "“Si dice che una strana nave sia stata vista ad %J253.”";
+	
+	"constrictor_hunt_brief1" = "---MESSAGGIO IN ARRIVO\n\nSaluti comandante,\n\nSono il Capitano Curruthers della Marina Spaziale di Sua Maestà Imperiale e la prego di concedermi un momento del suo prezioso tempo. Vorremmo che lei facesse un lavoretto per noi.\nLa nave che vede qua è un modello nuovo, il Constrictor, attrezzato con un generatore segretissimo di scudi.\n\nPurtroppo, è stata rubata.\n";
+	"constrictor_hunt_brief1a" = "È sparita dal nostro cantiere navale su Xeer cinque mesi fa ed è stata vista per l' ultima volta a Reesdice. La sua missione, se decidesse di accettarla, è di cercare e distruggere questa nave. La avviso che solo Laser Militari sono in grado di penetrare i nuovi scudi e che il Constrictor è attrezzato con un Sistema E.C.M.\n\nIn bocca al lupo, comandante.\n\n---MESSAGGIO TERMINATO.";
+	"constrictor_hunt_brief1b" = "È sparita dal nostro cantiere navale su Xeer cinque mesi fa e si crede che abbia fatto un salto iperspaziale in questa galassia. La sua missione, se decidesse di accettarla, è di cercare e distruggere questa nave. La avviso che solo Laser Militari sono in grado di penetrare i nuovi scudi e che il Constrictor è attrezzato con un Sistema E.C.M.\n\nIn bocca al lupo, comandante.\n\n---MESSAGGIO TERMINATO.";
+	"constrictor_hunt_info1a" = "Cacciare il Constrictor rubato da %J150.";
+	"constrictor_hunt_info1b" = "Cacciare il Constrictor rubato da Xeer Shipyards.";
+	"constrictor_hunt_debrief" = "---MESSAGGIO IN ARRIVO\n\nComplimenti comandante!\n\nCi sarà sempre un posto per lei nella Marina Spaziale di Sua Mestà Imperiale.\n\nE probabilmente prima di quelo che pensi...\n\n---MESSAGGIO TERMINATO.";
+	"constrictor_hunt_thief_captured" = "Ha catturato il ladro che ha rubato il Constrictor! La Marina di Sua Maestà Imperiale la premia con un bonus da 1000 crediti!\n";
+	"constrictor_hunt_thief_captured2" = "Ha catturato una capsula di fuga vuota. La persona cha ha rubato il Constrictor è ancora a bordo e lei ha lasciato la nave fugire! La Marina Spaziale di Sua Mestà Imperiale le da una occasione ancora!\n";
+	"constrictor_hunt_pilot_captured" = "Ha catturato il pilota di un Constrictor! La polizia %I la premia con un bonus da 250 credit!\n";
+	
+	
+	// Thargoid Plans mission (oolite-thargoid-plans-mission.js)
+	
+	"thargoid_plans_title" = "Missione di Marina Navale Spaziale";
+	"thargoid_plans_brief1" = "---MESSAGGIO IN ARRIVO\n\nAttenzione comandante, io sono il Capitano Fortesque della Marina Navale di Sua Maestà Imperiale.\n\nAbbiamo bisogno dei suoi servizi di nuovo.\n\nÈ pregato di partire per Ceerdi, dove parteciperà al briefing.\n\nSe sarà coronato da successo, sarà premiato.\n\n---MESSAGGIO TERMINATO.";
+	"thargoid_plans_brief2" = "---MESSAGGIO IN ARRIVO\n\nBuongiorno comandante.\n\nSono l' Agente Blake dell' Intelligence Navale.\nCome lei sa, la Marina ha tenuto i Thargoid lontano dal suo culo là fuori nello spazio profondo da tanti anni.\nAllora la situazione è stata cambiata. I nostri ragazzi sono pronti per colpire proprio la casa di questi omicida.\n\nHo ottenuto i piani difensivi per i loro Mondi Alveari. Gli scarafaggi sanno che abbiamo qualcosa, ma non cosa. Se trasmetterò i piani alla nostra base a Birera, intercetteranno la trasmissione. Ho bisogno di una nave per fare la corsa. Lei è statto scelto.\n\nI piani sono stati codificati con un monopulso in questa trasmissione. Verrà pagato.\n\nIn bocca al lupo comandante.\n\n---MESSAGGIO TERMINATO.";
+	"thargoid_plans_info1" = "Andare a %J083 per briefing sulla missione.";
+	"thargoid_plans_info2" = "Portare i piani segreti a %J036.";
+	"thargoid_plans_debrief" = "---MESSAGGIO IN ARRIVO\n\nCi ha servito bene e ce ne ricorderemo.\n\nNon ci aspettavamo che i Thargoid scoprissero di lei.\n\nPer adesso, prego accetti questa Unità Extra di Energia Navale come pagamento.\n\n---MESSAGGIO TERMINATO.";	
+	
+	// Nova mission (oolite-nova-mission.js)
+	
+	"oolite_nova_title" = "Missione di Soccorso";
+	"oolite_nova_brief" = "Lei è arrivato in un momento sfortunato, comandante.\n\nIl nostro sole è diventato instabile e diventerà presto una supernova. Tutte le nostri navi stanno evacuando il sistema, gli ultimi pochi rifugiati sono venuti qua per trovare una nave per portarli al sicuro.\n\nPer favore, la pregiamo di aiutarci a scappare!";
+	"oolite_nova_info" = "Portare i rifugiati in sicurezza.";
+	"oolite_nova_hero" = "Comandante, la ringraziamo.\n\nCi ha portati tutti in un posto sicuro ma non abbiamo soldi per ricompensarla.\n- i nostri ultimi crediti sono stati consegnati a quelli che ci hanno portato alla stazione spaziale.\n\nInvece le offriamo gratitudine eterna... e tutti i pochi beni preziosi che possiamo darle.\n\nLei è il nostro eroe!";
+	"oolite_nova_disappointed" = "Comandante, si vergogni.\nQuella gente che ha lasciato indietro avevano appoggiato la loro speranza su di lei e lei l'ha semplicemente lasciata al loro destino.\n\nQuesto comportamento da vigliacco non è stato ben notato."; 
+	"oolite_nova_ignored" = "Comandante,\n lei era l'ultima speranza per la salvezza dei rifugiati rimasti. Se non avesse\nignorato l'emergenza, loro sarebbero scapati dal'esplosione dello supernova.\n\nCome lei è riuscito ad abandonarli a loro destino..."; 
+	"oolite_nova_yesno" =
+	{
+		NO = "No, mi dispiace.";
+		YES = "Va bene, vi aiuterò.";
+	};
+	
+	
+	// Trumbles mission (oolite-trumbles-mission.js)
+	
+	"oolite_trumble_title" = "Offerta Speziale";
+	"oolite_trumble_offer" = "Comandante [commander_name],\n\nLei sembra uno che potrebbe usare un Trumble sulla sua [commander_shipdisplayname]!\n\nQuesto è suo per soli 30 crediti.";
+	"oolite_trumble_offer_yesno" =
+	{
+		"OOLITE_TRUMBLE_NO" = "No grazie. Nessun animale domestico sulla mia nave.";
+		"OOLITE_TRUMBLE_YES" = "Va bene, ne prenderò uno, sembra carino.";
+	};
+	
+
+// General contracts (oolite-contracts-*.js)
+	
+	"oolite-contracts-time-format" = "[oolite-contracts-time-format-hours] ore";
+	
+	// Parcel delivery contracts (oolite-contracts-parcels.js)
+
+	"oolite-contracts-parcels-interface-title" = "Contratti di Consegna Pacchi ([oolite-contracts-parcels-interface-title-count] a disponibilità)";
+	"oolite-contracts-parcels-interface-summary" = "Consegne di pacchi piccoli a recipienti in altri sistemi. No atrezzatura speciale è necessaria e i pacchi non occupano spazio nella stiva.";
+	"oolite-contracts-parcels-interface-category" = "[interfaces-category-deliveries]";
+
+	"oolite-contracts-parcels-none-available-title" = "Contratti di Consegna Pacchi";
+	"oolite-contracts-parcels-none-available-message" = "Al momento non ci sono contratti di consegna pacchi disponibili in questo sistema.";
+
+	"oolite-contracts-parcels-title-summary" = "Contratti di Consegna Pacchi";
+	"oolite-contracts-parcels-title-detail" = "Contratto di consegna pacchi [oolite-contracts-parcels-title-detail-number] da [oolite-contracts-parcels-title-detail-total]";
+
+	"oolite-contracts-parcels-column-cargo" = "Pacco";
+	"oolite-contracts-parcels-column-destination" = "Destinazione";
+	"oolite-contracts-parcels-column-within" = "Entro";
+	"oolite-contracts-parcels-column-fee" = "Importo";
+
+	"oolite-contracts-parcels-long-description" = "[oolite-contracts-parcels-longdesc-sender] ha qualche [oolite-contracts-parcels-longdesc-contents] che devono essere portati a [oolite-contracts-parcels-longdesc-destination] entro [oolite-contracts-parcels-longdesc-deadline]. Il viaggio durerà aprossimamente [oolite-contracts-parcels-longdesc-time] e lei sarà pagato [oolite-contracts-parcels-longdesc-payment] a consegna di successo.";
+
+	"oolite-contracts-parcels-command-ana-quickest" = "Dimostrare il percorso più veloce";
+	"oolite-contracts-parcels-command-ana-shortest" = "Dimostrare il percorso col minimo numero di salti";
+	"oolite-contracts-parcels-command-back" = "Contratto precedente";
+	"oolite-contracts-parcels-command-next" = "Contratto prossimo";
+	"oolite-contracts-parcels-command-list" = "Dimostrare tutti i contratti";
+	"oolite-contracts-parcels-command-accept" = "Accettare contratto di consegna";
+	"oolite-contracts-parcels-command-quit" = "Uscire da contratti di consegna pacchi";
+
+	// Passenger delivery contracts (oolite-contracts-passengers.js)
+
+	"oolite-contracts-passengers-interface-title" = "Contratti di Consegna Passegeri ([oolite-contracts-passengers-interface-title-count] a disponibilità)";
+	"oolite-contracts-passengers-interface-summary" = "Trasporto di passegeri ad altri sistemi. Una cabina passegeri (disponibile a tutti i sistemi di Livello Technologico 6 ò più alto) è necessario per ogni passegero.";
+	"oolite-contracts-passengers-interface-category" = "[interfaces-category-deliveries]";
+
+	"oolite-contracts-passengers-none-available-title" = "Contratti di Consegna Passegeri";
+	"oolite-contracts-passengers-none-available-message" = "Al momento non ci sono contratti di trasporto passegeri disponibili in questo sistema.";
+
+	"oolite-contracts-passengers-title-summary" = "Contratti di Consegna Passegeri";
+	"oolite-contracts-passengers-title-detail" = "Contratto di consegna passegeri [oolite-contracts-passengers-title-detail-number] da [oolite-contracts-passengers-title-detail-total]";
+
+	"oolite-contracts-passengers-column-name" = "Nome";
+	"oolite-contracts-passengers-column-destination" = "Destinazione";
+	"oolite-contracts-passengers-column-within" = "Entro";
+	"oolite-contracts-passengers-column-advance" = "Acconto";
+	"oolite-contracts-passengers-column-fee" = "Importo";
+
+	"oolite-contracts-passengers-long-description" = "[oolite-contracts-passengers-longdesc-name], un [oolite-contracts-passengers-longdesc-species], desidera andare a [oolite-contracts-passengers-longdesc-destination] entro [oolite-contracts-passengers-longdesc-deadline]. Il viaggio durerà aprossimamente [oolite-contracts-passengers-longdesc-time]. Lei sarà pagato [oolite-contracts-passengers-longdesc-advance] d'acconto e [oolite-contracts-passengers-longdesc-payment] a consegna di successo.";
+
+	"oolite-contracts-passengers-command-ana-quickest" = "Dimostrare il percorso più veloce";
+	"oolite-contracts-passengers-command-ana-shortest" = "Dimostrare il percorso col minimo numero di salti";
+	"oolite-contracts-passengers-command-back" = "Contratto precedente";
+	"oolite-contracts-passengers-command-next" = "Contratto prossimo";
+	"oolite-contracts-passengers-command-list" = "Dimostrare tutti i contratti";
+	"oolite-contracts-passengers-command-accept" = "Accettare contratto di trasporto";
+	"oolite-contracts-passengers-command-unavailable" = "(nessuna cabina passegeri disponibile)";
+	"oolite-contracts-passengers-command-quit" = "Uscire da contratti di trasporto passegeri";
+
+	// Cargo delivery contracts (oolite-contracts-cargo.js)
+
+	"oolite-contracts-cargo-interface-title" = "Contratti di Consegna Cargo ([oolite-contracts-cargo-interface-title-count] a disponibilità)";
+	"oolite-contracts-cargo-interface-summary" = "Trasporto di cargo in quantità ad altri sistemi. Spazio stiva sufficiente è necessario e lei deve pagare un importo per assicurare contro un potentiale falimento di consegna..";
+	"oolite-contracts-cargo-interface-category" = "[interfaces-category-deliveries]";
+
+	"oolite-contracts-cargo-none-available-title" = "Contratti di Consegna Cargo";
+	"oolite-contracts-cargo-none-available-message" = "Al momento non ci sono contratti di consegna cargo disponibili in questo sistema.";
+
+	"oolite-contracts-cargo-title-summary" = "Contratti di Consegna Cargo";
+	"oolite-contracts-cargo-title-detail" = "Contratto di consegna cargo [oolite-contracts-cargo-title-detail-number] da [oolite-contracts-cargo-title-detail-total]";
+
+	"oolite-contracts-cargo-column-goods" = "Beni";
+	"oolite-contracts-cargo-column-destination" = "Destinazione";
+	"oolite-contracts-cargo-column-within" = "Entro";
+	"oolite-contracts-cargo-column-deposit" = "Acconto";
+	"oolite-contracts-cargo-column-fee" = "Importo";
+
+	"oolite-contracts-cargo-long-description" = "Consegnare un cargo di [oolite-contracts-cargo-longdesc-goods] a [oolite-contracts-cargo-longdesc-destination] entro [oolite-contracts-cargo-longdesc-deadline]. Il viaggio durerà aprossimamente [oolite-contracts-cargo-longdesc-time]. Lei sarà pagato [oolite-contracts-cargo-longdesc-payment] a consegna di successo e deve pagare [oolite-contracts-cargo-longdesc-deposit] per prendere il contratto.";
+
+	"oolite-contracts-cargo-command-ana-quickest" = "Dimostrare il percorso più veloce";
+	"oolite-contracts-cargo-command-ana-shortest" = "Dimostrare il percorso col minimo numnero di salti";
+	"oolite-contracts-cargo-command-back" = "Contratto precedente";
+	"oolite-contracts-cargo-command-next" = "Contratto prossimo";
+	"oolite-contracts-cargo-command-list" = "Dimostrare tutti i contratti";
+	"oolite-contracts-cargo-command-accept" = "Accettare contratto cargo";
+	"oolite-contracts-cargo-command-unavailable" = "(risorse insufficienti)";
+	"oolite-contracts-cargo-command-quit" = "Uscire da Contratti di consegna cargo";
+
+
+}
